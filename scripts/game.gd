@@ -1,8 +1,11 @@
 extends Node2D
 @onready var player: CharacterBody2D = $Player
 @onready var soul_status_label: Label = $CanvasLayer/SoulStatus
+@onready var reset_button: Button = $CanvasLayer/ResetButton
 var stream: AudioStreamSynchronized
 var soul_collected: bool = false
+var level_completed: bool = false
+var game_stopped: bool = false
 
 func _ready() -> void:
 	if player == null:
@@ -20,12 +23,26 @@ func _ready() -> void:
 	if soul_status_label:
 		soul_status_label.text = "Soul lost."
 	
+	# Initialize reset button
+	if reset_button:
+		reset_button.disabled = true
+		reset_button.pressed.connect(_on_reset_button_pressed)
+	
 	# Connect to soul collection signal
 	var soul_node = $Soul
 	if soul_node:
 		soul_node.soul_collected.connect(_on_soul_collected)
+	
+	# Connect to door level completion signal
+	var door_node = $Door
+	if door_node:
+		door_node.level_completed.connect(_on_level_completed)
 
 func _process(delta: float) -> void:
+	# If game is stopped, don't process anything
+	if game_stopped:
+		return
+	
 	# If soul is collected, always play stream 2 at full volume
 	if soul_collected:
 		stream.set_sync_stream_volume(0, -80.0)  # nopads-nodrums
@@ -63,3 +80,54 @@ func _on_soul_collected() -> void:
 	soul_collected = true
 	if soul_status_label:
 		soul_status_label.text = "Soul recollected."
+
+func is_soul_collected() -> bool:
+	return soul_collected
+
+func _on_level_completed() -> void:
+	if not level_completed and soul_collected:
+		level_completed = true
+		game_stopped = true
+		if soul_status_label:
+			soul_status_label.text = "Soul Returned."
+		if reset_button:
+			reset_button.disabled = false
+		# Stop player movement
+		if player:
+			player.set_physics_process(false)
+
+func _on_reset_button_pressed() -> void:
+	# Reset game state
+	soul_collected = false
+	level_completed = false
+	game_stopped = false
+	
+	# Reset UI
+	if soul_status_label:
+		soul_status_label.text = "Soul lost."
+	if reset_button:
+		reset_button.disabled = true
+	
+	# Reset player
+	if player:
+		player.position = Vector2(474, 259)
+		player.set_physics_process(true)
+		player.revive()
+	
+	# Respawn soul
+	var soul_node = get_node_or_null("Soul")
+	if soul_node:
+		soul_node.queue_free()
+	# Wait a frame for the node to be fully removed
+	await get_tree().process_frame
+	var new_soul = preload("res://scenes/soul.tscn").instantiate()
+	new_soul.position = Vector2(300, 200)
+	new_soul.name = "Soul"
+	add_child(new_soul)
+	new_soul.soul_collected.connect(_on_soul_collected)
+	
+	# Reset door
+	var door_node = $Door
+	if door_node:
+		door_node.get_node("Sprite2D").modulate = Color(0.7, 0.5, 0.3, 1)
+		door_node.set_process(true)

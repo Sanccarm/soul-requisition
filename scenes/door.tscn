@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://belo1hglxr1jf"]
+
+[ext_resource type="Script" uid="uid://clg15p56m7vw0" path="res://scripts/door.gd" id="1_door"]
+
+[sub_resource type="Gradient" id="Gradient_hpvv5"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_uvdjg"]
+gradient = SubResource("Gradient_hpvv5")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_door"]
+size = Vector2(60, 80)
+
+[node name="Door" type="Area2D"]
+script = ExtResource("1_door")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.7, 0.5, 0.3, 1)
+scale = Vector2(1.5, 2)
+texture = SubResource("GradientTexture2D_uvdjg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_door")

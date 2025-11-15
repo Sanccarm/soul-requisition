@@ -78,6 +78,7 @@ func revive():
 	var tween = create_tween()
 	tween.parallel().tween_property(self, "modulate:a", 1, 1)
 	HEALTH = STARTING_HEALTH
+	$CollisionShape2D.disabled = false
 	
 	
 #func _on_rigid_body_2d_body_entered(body: Node) -> void:
