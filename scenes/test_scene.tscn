@@ -1,0 +1,34 @@
+[gd_scene load_steps=8 format=3 uid="uid://jbqiyllin6fo"]
+
+[ext_resource type="Script" uid="uid://bi78ir7fl5s33" path="res://scripts/test_music.gd" id="1_3qnke"]
+[ext_resource type="AudioStream" uid="uid://ba0nqlvgvulr2" path="res://assets/music/thememusic-nopads-nodrums.ogg" id="2_wtsjf"]
+[ext_resource type="AudioStream" uid="uid://cr8rfs3x3d0xt" path="res://assets/music/thememusic-pads-nodrums.ogg" id="3_rnaij"]
+[ext_resource type="AudioStream" uid="uid://b5a4rxrgujdc4" path="res://assets/music/thememusic-pads-drums.ogg" id="4_h3xc6"]
+[ext_resource type="PackedScene" uid="uid://el1f0wci62nh" path="res://scenes/player.tscn" id="5_s36qc"]
+[ext_resource type="Script" uid="uid://cut65kee22idb" path="res://scripts/player.gd" id="6_6qxox"]
+
+[sub_resource type="AudioStreamSynchronized" id="AudioStreamSynchronized_q0r65"]
+stream_count = 3
+stream_0/stream = ExtResource("2_wtsjf")
+stream_0/volume = 0.0
+stream_1/stream = ExtResource("3_rnaij")
+stream_1/volume = 0.0
+stream_2/stream = ExtResource("4_h3xc6")
+stream_2/volume = 0.0
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_3qnke")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamSynchronized_q0r65")
+volume_db = -5.0
+
+[node name="Player" parent="." instance=ExtResource("5_s36qc")]
+position = Vector2(474, 259)
+script = ExtResource("6_6qxox")
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+ignore_rotation = false
+position_smoothing_enabled = true
+position_smoothing_speed = 3.0
+editor_draw_drag_margin = true

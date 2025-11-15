@@ -1,5 +1,5 @@
 extends Node2D
-@onready var player: CharacterBody2D = $CharacterBody2D
+@onready var player: CharacterBody2D = $Player
 var stream: AudioStreamSynchronized
 
 func _ready() -> void:
