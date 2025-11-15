@@ -6,6 +6,9 @@ var stream: AudioStreamSynchronized
 var soul_collected: bool = false
 var level_completed: bool = false
 var game_stopped: bool = false
+var homing_timer: float = 0.0
+var homing_active: bool = false
+var bullet_homing_manager: Node = null
 
 func _ready() -> void:
 	if player == null:
@@ -37,11 +40,21 @@ func _ready() -> void:
 	var door_node = $Door
 	if door_node:
 		door_node.level_completed.connect(_on_level_completed)
+	
+	# Create bullet homing managersdddddddddddddddddd
+	#bullet_homing_manager = preload("res://scripts/bullet_homing_manager.gd").new()
+	#bullet_homing_manager.name = "BulletHomingManager"
+	#add_child(bullet_homing_manager)
 
 func _process(delta: float) -> void:
 	# If game is stopped, don't process anything
 	if game_stopped:
 		return
+	
+	# Update homing timer if active
+	if homing_active:
+		homing_timer += delta
+		update_bullet_homing()
 	
 	# If soul is collected, always play stream 2 at full volume
 	if soul_collected:
@@ -80,6 +93,12 @@ func _on_soul_collected() -> void:
 	soul_collected = true
 	if soul_status_label:
 		soul_status_label.text = "Soul recollected."
+	# Start bullet homing when soul is collected
+	start_bullet_homing()
+	var tween = create_tween()
+	tween.parallel().tween_property($BulletProperties/BasicBullet, "homing.homing_steer", 200, 10)
+	tween.play()
+	print("Tween playing")
 
 func is_soul_collected() -> bool:
 	return soul_collected
@@ -101,6 +120,8 @@ func _on_reset_button_pressed() -> void:
 	soul_collected = false
 	level_completed = false
 	game_stopped = false
+	homing_active = false
+	homing_timer = 0.0
 	
 	# Reset UI
 	if soul_status_label:
@@ -131,3 +152,31 @@ func _on_reset_button_pressed() -> void:
 	if door_node:
 		door_node.get_node("Sprite2D").modulate = Color(0.7, 0.5, 0.3, 1)
 		door_node.set_process(true)
+	
+	# Reset bullet properties to non-homing
+	reset_bullet_homing()
+
+func start_bullet_homing() -> void:
+	"""Start the bullet homing system - increases over 30 seconds"""
+	homing_active = true
+	homing_timer = 5.0
+
+func update_bullet_homing() -> void:
+	"""Update bullet homing strength based on timer"""
+	if not homing_active or not player:
+		return
+	
+	# Calculate homing strength (0 to 1 over 30 seconds)
+	var homing_strength = min(homing_timer / 5.0, 500)
+	
+	# Update existing bullets directly
+	update_existing_bullets_homing(homing_strength, player)
+
+func update_existing_bullets_homing(strength: float, target: Node2D) -> void:
+	"""Update existing bullets with new homing properties"""
+	# Access the Spawning singleton to modify bullet properties
+	Spawning.set_dynamic_homing(strength, target)
+
+func reset_bullet_homing() -> void:
+	"""Reset all bullets to non-homing state"""
+	Spawning.reset_dynamic_homing()

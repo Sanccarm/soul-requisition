@@ -1,34 +1,34 @@
 [gd_scene load_steps=22 format=3 uid="uid://jbqiyllin6fo"]
 
-[ext_resource type="Script" uid="uid://bi78ir7fl5s33" path="res://scripts/game.gd" id="1_3qnke"]
-[ext_resource type="AudioStream" uid="uid://ba0nqlvgvulr2" path="res://assets/music/thememusic-nopads-nodrums.ogg" id="2_wtsjf"]
-[ext_resource type="AudioStream" uid="uid://cr8rfs3x3d0xt" path="res://assets/music/thememusic-pads-nodrums.ogg" id="3_rnaij"]
-[ext_resource type="AudioStream" uid="uid://b5a4rxrgujdc4" path="res://assets/music/thememusic-pads-drums.ogg" id="4_h3xc6"]
-[ext_resource type="PackedScene" uid="uid://el1f0wci62nh" path="res://scenes/player.tscn" id="5_s36qc"]
-[ext_resource type="Script" uid="uid://cut65kee22idb" path="res://scripts/player.gd" id="6_6qxox"]
-[ext_resource type="Script" uid="uid://bw40v3cn00c3c" path="res://addons/BulletUpHell/Nodes/BuHPattern.gd" id="7_pattern"]
-[ext_resource type="Script" uid="uid://bilgoex71iw5j" path="res://addons/BulletUpHell/SpawnPatterns/PatternCircle.gd" id="8_circle"]
-[ext_resource type="Script" uid="uid://cwpsehqee4x34" path="res://addons/BulletUpHell/SpawnPatterns/PatternOne.gd" id="9_one"]
-[ext_resource type="Script" uid="uid://5antba4x85c3" path="res://addons/BulletUpHell/Nodes/BuHBulletProperties.gd" id="10_bulletprops"]
-[ext_resource type="Script" uid="uid://dg6447qwq6owg" path="res://addons/BulletUpHell/Bullet/BulletProps.gd" id="11_bulletdata"]
-[ext_resource type="Script" uid="uid://b361vvoa60xv5" path="res://addons/BulletUpHell/Bullet/animStates.gd" id="11_ntc4i"]
-[ext_resource type="Script" uid="uid://c223f1se5xsvb" path="res://addons/BulletUpHell/Nodes/BuHSpawnPoint.gd" id="12_spawnpoint"]
-[ext_resource type="PackedScene" uid="uid://dg4ckpkwj010e" path="res://scenes/soul.tscn" id="13_soul"]
-[ext_resource type="PackedScene" uid="uid://belo1hglxr1jf" path="res://scenes/door.tscn" id="14_door"]
+[ext_resource type="Script" uid="uid://bi78ir7fl5s33" path="res://scripts/game.gd" id="1_pe5t1"]
+[ext_resource type="AudioStream" uid="uid://ba0nqlvgvulr2" path="res://assets/music/thememusic-nopads-nodrums.ogg" id="2_0s3ox"]
+[ext_resource type="AudioStream" uid="uid://cr8rfs3x3d0xt" path="res://assets/music/thememusic-pads-nodrums.ogg" id="3_oif02"]
+[ext_resource type="AudioStream" uid="uid://b5a4rxrgujdc4" path="res://assets/music/thememusic-pads-drums.ogg" id="4_y6sut"]
+[ext_resource type="PackedScene" uid="uid://dg4ckpkwj010e" path="res://scenes/soul.tscn" id="5_i2ok4"]
+[ext_resource type="PackedScene" uid="uid://belo1hglxr1jf" path="res://scenes/door.tscn" id="6_t3uk0"]
+[ext_resource type="PackedScene" uid="uid://el1f0wci62nh" path="res://scenes/player.tscn" id="7_iqpg7"]
+[ext_resource type="Script" uid="uid://cut65kee22idb" path="res://scripts/player.gd" id="8_cgsjm"]
+[ext_resource type="Script" uid="uid://bw40v3cn00c3c" path="res://addons/BulletUpHell/Nodes/BuHPattern.gd" id="9_nrjfr"]
+[ext_resource type="Script" uid="uid://bilgoex71iw5j" path="res://addons/BulletUpHell/SpawnPatterns/PatternCircle.gd" id="10_siyaw"]
+[ext_resource type="Script" uid="uid://cwpsehqee4x34" path="res://addons/BulletUpHell/SpawnPatterns/PatternOne.gd" id="11_yhpex"]
+[ext_resource type="Script" uid="uid://5antba4x85c3" path="res://addons/BulletUpHell/Nodes/BuHBulletProperties.gd" id="12_6ls7d"]
+[ext_resource type="Script" uid="uid://b361vvoa60xv5" path="res://addons/BulletUpHell/Bullet/animStates.gd" id="13_2v5tb"]
+[ext_resource type="Script" uid="uid://dg6447qwq6owg" path="res://addons/BulletUpHell/Bullet/BulletProps.gd" id="14_rdeo8"]
+[ext_resource type="Script" uid="uid://c223f1se5xsvb" path="res://addons/BulletUpHell/Nodes/BuHSpawnPoint.gd" id="15_qii72"]
 
 [sub_resource type="AudioStreamSynchronized" id="AudioStreamSynchronized_q0r65"]
 stream_count = 3
-stream_0/stream = ExtResource("2_wtsjf")
+stream_0/stream = ExtResource("2_0s3ox")
 stream_0/volume = 0.0
-stream_1/stream = ExtResource("3_rnaij")
+stream_1/stream = ExtResource("3_oif02")
 stream_1/volume = 0.0
-stream_2/stream = ExtResource("4_h3xc6")
+stream_2/stream = ExtResource("4_y6sut")
 stream_2/volume = 0.0
 
 [sub_resource type="NavigationPolygon" id="PatternCircle"]
 resource_name = "PatternCircle"
 source_geometry_group_name = &"navigation_polygon_source_group"
-script = ExtResource("8_circle")
+script = ExtResource("10_siyaw")
 radius = 100
 angle_total = 6.28319
 bullet = "basic"
@@ -39,17 +39,17 @@ cooldown_spawn = 2.0
 [sub_resource type="NavigationPolygon" id="PatternOne"]
 resource_name = "PatternOne"
 source_geometry_group_name = &"navigation_polygon_source_group"
-script = ExtResource("9_one")
+script = ExtResource("11_yhpex")
 bullet = "basic"
 iterations = -1
-cooldown_spawn = 0.5
+cooldown_spawn = 0.0
 
 [sub_resource type="Curve" id="SpeedCurve"]
 
 [sub_resource type="Curve" id="ScaleCurve"]
 
 [sub_resource type="PackedDataContainer" id="BulletProps"]
-script = ExtResource("11_bulletdata")
+script = ExtResource("14_rdeo8")
 damage = 1.0
 speed = 150.0
 scale = 1.0
@@ -62,7 +62,7 @@ spec_trail_length = 0.0
 spec_trail_width = 0.0
 spec_trail_modulate = Color(1, 1, 1, 1)
 spec_rotating_speed = 0.0
-death_after_time = 10.0
+death_after_time = 4.0
 death_outside_box = Rect2(0, 0, 0, 0)
 death_from_collision = true
 a_direction_equation = ""
@@ -120,21 +120,21 @@ r_scale_multi_iter_variation = Vector3(0, 0, 0)
 r_scale_multi_scale_variation = Vector3(0, 0, 0)
 
 [node name="Node2D" type="Node2D"]
-script = ExtResource("1_3qnke")
+script = ExtResource("1_pe5t1")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamSynchronized_q0r65")
 volume_db = -5.0
 
-[node name="Soul" parent="." instance=ExtResource("13_soul")]
+[node name="Soul" parent="." instance=ExtResource("5_i2ok4")]
 position = Vector2(300, 200)
 
-[node name="Door" parent="." instance=ExtResource("14_door")]
+[node name="Door" parent="." instance=ExtResource("6_t3uk0")]
 position = Vector2(900, 259)
 
-[node name="Player" parent="." instance=ExtResource("5_s36qc")]
+[node name="Player" parent="." instance=ExtResource("7_iqpg7")]
 position = Vector2(474, 259)
-script = ExtResource("6_6qxox")
+script = ExtResource("8_cgsjm")
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 ignore_rotation = false
@@ -146,20 +146,20 @@ editor_draw_drag_margin = true
 
 [node name="CirclePattern" type="Path2D" parent="BulletHellPatterns"]
 position = Vector2(474, 259)
-script = ExtResource("7_pattern")
+script = ExtResource("9_nrjfr")
 id = "circle"
 pattern = SubResource("PatternCircle")
 
 [node name="SinglePattern" type="Path2D" parent="BulletHellPatterns"]
 position = Vector2(474, 259)
-script = ExtResource("7_pattern")
+script = ExtResource("9_nrjfr")
 id = "single"
 pattern = SubResource("PatternOne")
 
 [node name="BulletProperties" type="Node2D" parent="."]
 
 [node name="BasicBullet" type="Path2D" parent="BulletProperties"]
-script = ExtResource("10_bulletprops")
+script = ExtResource("12_6ls7d")
 id = "basic"
 props = SubResource("BulletProps")
 
@@ -167,7 +167,7 @@ props = SubResource("BulletProps")
 
 [node name="TopSpawner" type="Node2D" parent="SpawnPoints"]
 position = Vector2(474, 100)
-script = ExtResource("12_spawnpoint")
+script = ExtResource("15_qii72")
 active = true
 auto_pattern_id = "circle"
 shared_area_name = "0"
@@ -181,12 +181,12 @@ trigger_container = NodePath("")
 
 [node name="LeftSpawner" type="Node2D" parent="SpawnPoints"]
 position = Vector2(200, 259)
-script = ExtResource("12_spawnpoint")
+script = ExtResource("15_qii72")
 active = true
 auto_pattern_id = "single"
 shared_area_name = "0"
-rotating_speed = 0.0
-pool_amount = 50
+rotating_speed = 10.0
+pool_amount = 500
 auto_start_on_cam = true
 auto_start_after_time = 2.0
 auto_start_at_distance = 5.0
@@ -195,12 +195,12 @@ trigger_container = NodePath("")
 
 [node name="RightSpawner" type="Node2D" parent="SpawnPoints"]
 position = Vector2(748, 259)
-script = ExtResource("12_spawnpoint")
+script = ExtResource("15_qii72")
 active = true
 auto_pattern_id = "single"
 shared_area_name = "0"
-rotating_speed = 0.0
-pool_amount = 50
+rotating_speed = 1111.0
+pool_amount = 500
 auto_start_on_cam = true
 auto_start_after_time = 3.0
 auto_start_at_distance = 5.0

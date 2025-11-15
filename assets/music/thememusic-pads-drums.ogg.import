@@ -13,7 +13,7 @@ dest_files=["res://.godot/imported/thememusic-pads-drums.ogg-07e1d83922d1c86a399
 [params]
 
 loop=true
-loop_offset=0.0
+loop_offset=1.42
 bpm=170.0
 beat_count=0
 bar_beats=4

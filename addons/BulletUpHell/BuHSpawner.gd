@@ -61,6 +61,10 @@ enum ANIM{TEXTURE, COLLISION, SFX, SCALE, SKEW}
 
 var global_reset_counter:int = 0
 
+# Dynamic homing system
+var dynamic_homing_strength: float = 0.0
+var dynamic_homing_target: Node2D = null
+
 ## multithreading
 #var spawn_thread: Thread
 #var move_thread: Thread
@@ -724,7 +728,14 @@ func move_homing(B:Dictionary, props, delta:float):
 						B["homing_target"] = null
 		else: B["homing_target"] = null
 
-	B["vel"] += ((target_pos-B["position"]).normalized()*B["speed"] - B["vel"]).normalized() * props["homing_steer"] * delta
+	# Apply dynamic homing if active
+	if dynamic_homing_strength > 0.0 and dynamic_homing_target and is_instance_valid(dynamic_homing_target):
+		var dynamic_target_pos = dynamic_homing_target.global_position
+		var dynamic_steer = props.get("homing_steer", 10.0) * dynamic_homing_strength
+		B["vel"] += ((dynamic_target_pos-B["position"]).normalized()*B["speed"] - B["vel"]).normalized() * dynamic_steer * delta
+	else:
+		# Normal homing behavior
+		B["vel"] += ((target_pos-B["position"]).normalized()*B["speed"] - B["vel"]).normalized() * props["homing_steer"] * delta
 	B["rotation"] = B["vel"].angle()
 
 func move_curve(B:Dictionary, props, delta:float, b):
@@ -784,6 +795,15 @@ func bullet_movement(delta:float):
 			if props.get("curve"): move_curve(B, props, delta, b)
 			else:
 				B["vel"] = Vector2(B["speed"],B.get("curve",0)).rotated(B["rotation"])
+				
+				# Apply dynamic homing if active (even for non-homing bullets)
+				if dynamic_homing_strength > 0.0 and dynamic_homing_target and is_instance_valid(dynamic_homing_target):
+					var target_pos = dynamic_homing_target.global_position
+					var direction_to_target = (target_pos - B["position"]).normalized()
+					var dynamic_steer = 50.0 * dynamic_homing_strength  # Base steering strength
+					B["vel"] += (direction_to_target * B["speed"] - B["vel"]).normalized() * dynamic_steer * delta
+					B["rotation"] = B["vel"].angle()
+				
 				B["position"] += B["vel"]*delta
 
 			if B.has("spawn_pos") and not props.has("curve"): B["position"] += B["spawn_pos"]
@@ -1051,6 +1071,16 @@ func switch_property_of_all(replaceby_id:String, replaced_id:String="__ALL__"):
 		b["props"] = bullet(replaceby_id)
 
 ### RANDOMISATION ###
+
+func set_dynamic_homing(strength: float, target: Node2D) -> void:
+	"""Set dynamic homing strength and target for all bullets"""
+	dynamic_homing_strength = strength
+	dynamic_homing_target = target
+
+func reset_dynamic_homing() -> void:
+	"""Reset dynamic homing for all bullets"""
+	dynamic_homing_strength = 0.0
+	dynamic_homing_target = null
 
 func random_remove(id:String, prop:String):
 	var res = bullet(id)
