@@ -5,6 +5,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3vyb7"]
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
+groups = ["Player"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-0.24999925, 4.7683716e-07)
