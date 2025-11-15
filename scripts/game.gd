@@ -2,6 +2,7 @@ extends Node2D
 @onready var player: CharacterBody2D = $Player
 @onready var soul_status_label: Label = $CanvasLayer/SoulStatus
 @onready var reset_button: Button = $CanvasLayer/ResetButton
+@onready var game_over_music: AudioStreamPlayer = $GameOverMusic
 var stream: AudioStreamSynchronized
 var soul_collected: bool = false
 var level_completed: bool = false
@@ -56,49 +57,44 @@ func _process(delta: float) -> void:
 		homing_timer += delta
 		update_bullet_homing()
 	
-	# If soul is collected, always play stream 2 at full volume
+	# If soul is collected, don't process normal music (drums handle this separately)
 	if soul_collected:
-		stream.set_sync_stream_volume(0, -80.0)  # nopads-nodrums
-		stream.set_sync_stream_volume(1, -80.0)  # pads-nodrums
-		stream.set_sync_stream_volume(2, 0.0)    # pads-drums (full volume)
 		return
 	
-	# Moving RIGHT increases intensity (0 to 1)
-	var intensity = clamp((player.position.x - 64) / 1000.0, 0, 1)
-	var mystery = clamp((player.position.y - 64) / 500.0, 0, 1)
-	
-	# Crossfade between three layers based on intensity
-	if intensity < 0.5:
-		# Crossfade between layer 0 and layer 1
-		var blend = intensity * 2.0  # 0 to 1 over first half
-		var fade_out = cos(blend * PI * 0.5)  # Cosine fade
-		var fade_in = sin(blend * PI * 0.5)   # Sine fade
-		stream.set_sync_stream_volume(0, linear_to_db(fade_out))
-		stream.set_sync_stream_volume(1, linear_to_db(fade_in))
-		stream.set_sync_stream_volume(2, -80.0)
-	else:
-		# Crossfade between layer 1 and layer 2
-		var blend = (intensity - 0.5) * 2.0  # 0 to 1 over second half
-		var fade_out = cos(blend * PI * 0.5)
-		var fade_in = sin(blend * PI * 0.5)
-		stream.set_sync_stream_volume(0, -80.0)
-		stream.set_sync_stream_volume(1, linear_to_db(fade_out))
-		stream.set_sync_stream_volume(2, linear_to_db(fade_in))
-	
-	# Display intensity and mystery percentages
-	intensity = int(intensity * 100)
-	mystery = int(mystery * 100)
+	# Calculate proximity to soul (closer = more pads, no drums)
+	var soul_node = get_node_or_null("Soul")
+	if soul_node and player:
+		var distance = player.position.distance_to(soul_node.position)
+		var proximity = clamp(1.0 - (distance / 400.0), 0, 1)  # 400 units is max distance
+		
+		# Crossfade between no pads and pads (no drums ever)
+		var fade_out = cos(proximity * PI * 0.5)  # Cosine fade
+		var fade_in = sin(proximity * PI * 0.5)   # Sine fade
+		stream.set_sync_stream_volume(0, linear_to_db(fade_out))  # nopads-nodrums
+		stream.set_sync_stream_volume(1, linear_to_db(fade_in))   # pads-nodrums
+		stream.set_sync_stream_volume(2, -80.0)  # pads-drums (always off)
 
 func _on_soul_collected() -> void:
 	soul_collected = true
 	if soul_status_label:
 		soul_status_label.text = "Soul recollected."
+	
+	# Stop normal music and play only drums from beginning
+	$AudioStreamPlayer.stop()
+	# Create a new AudioStreamPlayer for just the drums
+	var drum_player = AudioStreamPlayer.new()
+	drum_player.stream = preload("res://assets/music/thememusic-pads-drums.ogg")
+	drum_player.volume_db = -5.0
+	drum_player.name = "DrumPlayer"
+	add_child(drum_player)
+	drum_player.play()
+	
 	# Start bullet homing when soul is collected
 	start_bullet_homing()
-	var tween = create_tween()
-	tween.parallel().tween_property($BulletProperties/BasicBullet, "homing.homing_steer", 200, 10)
-	tween.play()
-	print("Tween playing")
+	#var tween = create_tween()
+	#tween.parallel().tween_property($BulletProperties/BasicBullet, "homing.homing_steer", 200, 10)
+	#tween.play()
+	#print("Tween playing")
 
 func is_soul_collected() -> bool:
 	return soul_collected
@@ -155,11 +151,36 @@ func _on_reset_button_pressed() -> void:
 	
 	# Reset bullet properties to non-homing
 	reset_bullet_homing()
+	
+	# Stop drum player and resume normal music
+	var drum_player = get_node_or_null("DrumPlayer")
+	if drum_player:
+		drum_player.queue_free()
+	if game_over_music:
+		game_over_music.stop()
+	$AudioStreamPlayer.play()
+
+func play_game_over_music() -> void:
+	"""Stop all music and play game over music"""
+	$AudioStreamPlayer.stop()
+	# Stop drum player if it exists
+	var drum_player = get_node_or_null("DrumPlayer")
+	if drum_player:
+		drum_player.stop()
+		drum_player.queue_free()
+	if game_over_music:
+		game_over_music.play()
+
+func resume_normal_music() -> void:
+	"""Stop game over music and resume normal music"""
+	if game_over_music:
+		game_over_music.stop()
+	$AudioStreamPlayer.play()
 
 func start_bullet_homing() -> void:
 	"""Start the bullet homing system - increases over 30 seconds"""
 	homing_active = true
-	homing_timer = 5.0
+	homing_timer = 0.0
 
 func update_bullet_homing() -> void:
 	"""Update bullet homing strength based on timer"""
@@ -167,7 +188,7 @@ func update_bullet_homing() -> void:
 		return
 	
 	# Calculate homing strength (0 to 1 over 30 seconds)
-	var homing_strength = min(homing_timer / 5.0, 500)
+	var homing_strength = min(homing_timer / 5.0, 5000000)
 	
 	# Update existing bullets directly
 	update_existing_bullets_homing(homing_strength, player)

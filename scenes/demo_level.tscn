@@ -1,9 +1,10 @@
-[gd_scene load_steps=22 format=3 uid="uid://jbqiyllin6fo"]
+[gd_scene load_steps=23 format=3 uid="uid://jbqiyllin6fo"]
 
 [ext_resource type="Script" uid="uid://bi78ir7fl5s33" path="res://scripts/game.gd" id="1_pe5t1"]
 [ext_resource type="AudioStream" uid="uid://ba0nqlvgvulr2" path="res://assets/music/thememusic-nopads-nodrums.ogg" id="2_0s3ox"]
 [ext_resource type="AudioStream" uid="uid://cr8rfs3x3d0xt" path="res://assets/music/thememusic-pads-nodrums.ogg" id="3_oif02"]
 [ext_resource type="AudioStream" uid="uid://b5a4rxrgujdc4" path="res://assets/music/thememusic-pads-drums.ogg" id="4_y6sut"]
+[ext_resource type="AudioStream" uid="uid://dkgxpdhc38pxp" path="res://assets/music/game_over.ogg" id="5_game_over"]
 [ext_resource type="PackedScene" uid="uid://dg4ckpkwj010e" path="res://scenes/soul.tscn" id="5_i2ok4"]
 [ext_resource type="PackedScene" uid="uid://belo1hglxr1jf" path="res://scenes/door.tscn" id="6_t3uk0"]
 [ext_resource type="PackedScene" uid="uid://el1f0wci62nh" path="res://scenes/player.tscn" id="7_iqpg7"]
@@ -34,7 +35,6 @@ angle_total = 6.28319
 bullet = "basic"
 nbr = 8
 iterations = -1
-cooldown_spawn = 2.0
 
 [sub_resource type="NavigationPolygon" id="PatternOne"]
 resource_name = "PatternOne"
@@ -42,7 +42,6 @@ source_geometry_group_name = &"navigation_polygon_source_group"
 script = ExtResource("11_yhpex")
 bullet = "basic"
 iterations = -1
-cooldown_spawn = 0.0
 
 [sub_resource type="Curve" id="SpeedCurve"]
 
@@ -124,6 +123,10 @@ script = ExtResource("1_pe5t1")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamSynchronized_q0r65")
+volume_db = -5.0
+
+[node name="GameOverMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_game_over")
 volume_db = -5.0
 
 [node name="Soul" parent="." instance=ExtResource("5_i2ok4")]

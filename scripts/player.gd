@@ -47,6 +47,16 @@ func died():
 	print("DEBUG: Executing death sequence")
 		# Stop movement
 	set_physics_process(false)
+	
+	# Update soul status label to "You're Lost."
+	var soul_status_label = $"../CanvasLayer/SoulStatus"
+	if soul_status_label:
+		soul_status_label.text = "You're Lost."
+	
+	# Play game over music
+	var game_node = get_parent()
+	if game_node and game_node.has_method("play_game_over_music"):
+		game_node.play_game_over_music()
 		
 	# Create a CanvasLayer for UI effects
 	var canvas_layer = CanvasLayer.new()
@@ -79,6 +89,16 @@ func revive():
 	tween.parallel().tween_property(self, "modulate:a", 1, 1)
 	HEALTH = STARTING_HEALTH
 	$CollisionShape2D.disabled = false
+	
+	# Reset soul status label when reviving
+	var soul_status_label = $"../CanvasLayer/SoulStatus"
+	if soul_status_label:
+		soul_status_label.text = "Soul lost."
+	
+	# Resume normal music when reviving
+	var game_node = get_parent()
+	if game_node and game_node.has_method("resume_normal_music"):
+		game_node.resume_normal_music()
 	
 	
 #func _on_rigid_body_2d_body_entered(body: Node) -> void:
