@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://dg4ckpkwj010e"]
+
+[ext_resource type="Script" uid="uid://dgkjqa5hgsq4p" path="res://scripts/soul.gd" id="1_soul"]
+[ext_resource type="Texture2D" uid="uid://p58ymjtnj3ns" path="res://icon.svg" id="2_jnmxf"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_soul"]
+radius = 20.0
+
+[node name="Soul" type="Area2D"]
+script = ExtResource("1_soul")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.8, 0.6, 1, 1)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_jnmxf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_soul")

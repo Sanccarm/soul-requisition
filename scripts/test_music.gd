@@ -1,6 +1,8 @@
 extends Node2D
 @onready var player: CharacterBody2D = $Player
+@onready var soul_status_label: Label = $CanvasLayer/SoulStatus
 var stream: AudioStreamSynchronized
+var soul_collected: bool = false
 
 func _ready() -> void:
 	if player == null:
@@ -13,8 +15,24 @@ func _ready() -> void:
 	stream.set_sync_stream_volume(1, -80.0)  # pads-nodrums
 	stream.set_sync_stream_volume(2, -80.0)  # pads-drums
 	$AudioStreamPlayer.play()
+	
+	# Initialize soul status label
+	if soul_status_label:
+		soul_status_label.text = "Soul lost."
+	
+	# Connect to soul collection signal
+	var soul_node = $Soul
+	if soul_node:
+		soul_node.soul_collected.connect(_on_soul_collected)
 
 func _process(delta: float) -> void:
+	# If soul is collected, always play stream 2 at full volume
+	if soul_collected:
+		stream.set_sync_stream_volume(0, -80.0)  # nopads-nodrums
+		stream.set_sync_stream_volume(1, -80.0)  # pads-nodrums
+		stream.set_sync_stream_volume(2, 0.0)    # pads-drums (full volume)
+		return
+	
 	# Moving RIGHT increases intensity (0 to 1)
 	var intensity = clamp((player.position.x - 64) / 1000.0, 0, 1)
 	var mystery = clamp((player.position.y - 64) / 500.0, 0, 1)
@@ -40,3 +58,8 @@ func _process(delta: float) -> void:
 	# Display intensity and mystery percentages
 	intensity = int(intensity * 100)
 	mystery = int(mystery * 100)
+
+func _on_soul_collected() -> void:
+	soul_collected = true
+	if soul_status_label:
+		soul_status_label.text = "Soul recollected."

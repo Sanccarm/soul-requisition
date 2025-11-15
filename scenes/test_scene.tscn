@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://jbqiyllin6fo"]
+[gd_scene load_steps=21 format=3 uid="uid://jbqiyllin6fo"]
 
 [ext_resource type="Script" uid="uid://bi78ir7fl5s33" path="res://scripts/test_music.gd" id="1_3qnke"]
 [ext_resource type="AudioStream" uid="uid://ba0nqlvgvulr2" path="res://assets/music/thememusic-nopads-nodrums.ogg" id="2_wtsjf"]
@@ -13,6 +13,7 @@
 [ext_resource type="Script" uid="uid://dg6447qwq6owg" path="res://addons/BulletUpHell/Bullet/BulletProps.gd" id="11_bulletdata"]
 [ext_resource type="Script" uid="uid://b361vvoa60xv5" path="res://addons/BulletUpHell/Bullet/animStates.gd" id="11_ntc4i"]
 [ext_resource type="Script" uid="uid://c223f1se5xsvb" path="res://addons/BulletUpHell/Nodes/BuHSpawnPoint.gd" id="12_spawnpoint"]
+[ext_resource type="PackedScene" uid="uid://dg4ckpkwj010e" path="res://scenes/soul.tscn" id="13_soul"]
 
 [sub_resource type="AudioStreamSynchronized" id="AudioStreamSynchronized_q0r65"]
 stream_count = 3
@@ -124,6 +125,9 @@ script = ExtResource("1_3qnke")
 stream = SubResource("AudioStreamSynchronized_q0r65")
 volume_db = -5.0
 
+[node name="Soul" parent="." instance=ExtResource("13_soul")]
+position = Vector2(300, 200)
+
 [node name="Player" parent="." instance=ExtResource("5_s36qc")]
 position = Vector2(474, 259)
 script = ExtResource("6_6qxox")
@@ -201,6 +205,12 @@ trigger_container = NodePath("")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
+[node name="SoulStatus" type="Label" parent="CanvasLayer"]
+offset_right = 140.0
+offset_bottom = 25.0
+text = "Soul lost."
+vertical_alignment = 1
+
 [node name="Button" type="Button" parent="CanvasLayer"]
 anchors_preset = 2
 anchor_top = 1.0
@@ -210,10 +220,5 @@ offset_right = 122.848
 grow_vertical = 0
 disabled = true
 text = "REVIVE"
-
-[node name="Label" type="Label" parent="CanvasLayer"]
-offset_right = 196.0
-offset_bottom = 23.0
-text = "Soul Status: Lost"
 
 [connection signal="pressed" from="CanvasLayer/Button" to="Player" method="_on_button_pressed"]
