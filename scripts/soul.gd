@@ -7,6 +7,7 @@ func _ready() -> void:
 	body_entered.connect(_on_body_entered)
 
 func _on_body_entered(body: Node) -> void:
+	$"../CanvasLayer/GPUParticles2D".emitting = true
 	var zoomout = get_tree().create_tween()
 	zoomout.parallel().tween_property($"../Player/Camera2D", "zoom:x", 1.0, 1.5)
 	zoomout.parallel().tween_property($"../Player/Camera2D", "zoom:y", 1.0, 1.5)
