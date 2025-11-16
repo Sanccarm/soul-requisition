@@ -11,6 +11,11 @@ var homing_timer: float = 0.0
 var homing_active: bool = false
 var bullet_homing_manager: Node = null
 
+# Timer variables
+var countdown_timer: float = 20.0
+var countdown_active: bool = false
+@onready var timer_label = $CanvasLayer/Timer
+
 func _ready() -> void:
 	if player == null:
 		push_error("Player node not found! Make sure it has a unique name (%) in the scene tree.")
@@ -32,6 +37,9 @@ func _ready() -> void:
 		reset_button.disabled = true
 		reset_button.pressed.connect(_on_reset_button_pressed)
 	
+	## Setup timer label
+	setup_timer_label()
+	
 	# Connect to soul collection signal
 	var soul_node = $Soul
 	if soul_node:
@@ -51,6 +59,16 @@ func _process(delta: float) -> void:
 	# If game is stopped, don't process anything
 	if game_stopped:
 		return
+	
+	# Update countdown timer if active
+	if countdown_active:
+		countdown_timer -= delta
+		update_timer_display()
+		
+		if countdown_timer <= 0:
+			countdown_timer = 0
+			countdown_active = false
+			timer_label.modulate = Color.RED
 	
 	# Update homing timer if active
 	if homing_active:
@@ -78,6 +96,15 @@ func _on_soul_collected() -> void:
 	soul_collected = true
 	if soul_status_label:
 		soul_status_label.text = "Soul recollected."
+	
+	# Start the 20-second countdown timer
+	countdown_timer = 20.0
+	countdown_active = true
+	timer_label.modulate = Color.WHITE
+	timer_label.visible = true
+	
+	# Animate timer from center to top
+	animate_timer_position()
 	
 	# Stop normal music and play only drums from beginning
 	$AudioStreamPlayer.stop()
@@ -118,12 +145,16 @@ func _on_reset_button_pressed() -> void:
 	game_stopped = false
 	homing_active = false
 	homing_timer = 0.0
+	countdown_active = false
+	countdown_timer = 20.0
 	
 	# Reset UI
 	if soul_status_label:
 		soul_status_label.text = "Soul lost."
 	if reset_button:
 		reset_button.disabled = true
+	if timer_label:
+		timer_label.visible = false
 	
 	# Reset player
 	if player:
@@ -188,7 +219,7 @@ func update_bullet_homing() -> void:
 		return
 	
 	# Calculate homing strength (0 to 1 over 30 seconds)
-	var homing_strength = min(homing_timer / 5.0, 5000000)
+	var homing_strength = min(homing_timer / 1, 5000)
 	
 	# Update existing bullets directly
 	update_existing_bullets_homing(homing_strength, player)
@@ -201,3 +232,43 @@ func update_existing_bullets_homing(strength: float, target: Node2D) -> void:
 func reset_bullet_homing() -> void:
 	"""Reset all bullets to non-homing state"""
 	Spawning.reset_dynamic_homing()
+
+func setup_timer_label() -> void:
+	"""Setup the timer label with styling and initial position"""
+	if timer_label:
+		# Make it large and centered
+		#timer_label.add_theme_font_size_override("font_size", 72)
+		#timer_label.add_theme_constant_override("outline_size", 4)
+		#timer_label.add_theme_color_override("font_outline_color", Color.BLACK)
+		timer_label.modulate = Color.WHITE
+		timer_label.visible = false
+		#
+		## Center the label initially
+		#center_timer_label()
+
+#func center_timer_label() -> void:
+	#"""Center the timer label in the middle of the screen"""
+	#if timer_label:
+		#var viewport_size = get_viewport().get_visible_rect().size
+		#timer_label.position = Vector2(viewport_size.x / 2, viewport_size.y / 2)
+		#timer_label.anchors_preset = Control.PRESET_CENTER
+		#timer_label.position = Vector2(0, 0)
+
+func animate_timer_position() -> void:
+	"""Animate timer from center to top middle of canvas"""
+	if timer_label:
+		var tween = create_tween()
+		tween.set_parallel(true)
+		
+		# Animate position from center to top middle
+		tween.tween_property(timer_label, "position:y", 10, 1)
+		# Animate font size from large to smaller
+		tween.tween_property(timer_label, "theme_override_font_sizes/font_size", 24, 1)
+
+func update_timer_display() -> void:
+	"""Update the timer display with milliseconds"""
+	if timer_label:
+		var minutes = int(countdown_timer) / 60
+		var seconds = int(countdown_timer) % 60
+		var milliseconds = int((countdown_timer - int(countdown_timer)) * 100)
+		timer_label.text = "%02d:%02d.%02d" % [minutes, seconds, milliseconds]
