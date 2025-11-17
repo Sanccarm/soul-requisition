@@ -3,6 +3,16 @@ const STARTING_HEALTH = 1.0
 var HEALTH = STARTING_HEALTH
 const SPEED = 200.0
 
+# Parry system variables
+var parry_active: bool = false
+var parry_cooldown: float = 0.0
+const PARRY_DURATION: float = 0.5
+const PARRY_COOLDOWN_TIME: float = 2.0
+
+@onready var parry_shield: Area2D = $ParryShield
+@onready var parry_sprite: Sprite2D = $ParryShield/ParrySprite
+@onready var parry_sound: AudioStreamPlayer = $ParrySound
+
 func _ready() -> void:
 	$"../CanvasLayer/Button".disabled = true
 	print("DEBUG: Player _ready() called")
@@ -11,12 +21,34 @@ func _ready() -> void:
 	print("DEBUG: Player groups: ", get_groups())
 	print("DEBUG: Player has take_damage method: ", has_method("take_damage"))
 	print("player started")
+	
+	# Initialize parry shield
+	if parry_shield:
+		parry_shield.monitoring = false
+		parry_shield.get_node("ParryCollisionShape").disabled = true
+		parry_shield.connect("area_entered", _on_parry_shield_area_entered)
+	
+	# Initialize parry sprite
+	if parry_sprite:
+		parry_sprite.visible = false
 
 
 func _physics_process(delta: float) -> void:
 	var direction = Input.get_vector("left","right", "up", "down")
 	velocity = direction * SPEED
 	move_and_slide()
+	
+	# Handle parry cooldown
+	if parry_cooldown > 0:
+		parry_cooldown -= delta
+	
+	# Handle parry input
+	if Input.is_action_just_pressed("parry"):
+		if parry_cooldown <= 0:
+			activate_parry()
+		else:
+			print("DEBUG: Parry on cooldown! ", parry_cooldown, " seconds remaining")
+	
 	for i in get_slide_collision_count():
 		var collision = get_slide_collision(i)
 		print("I collided with ", collision.get_collider().name)
@@ -112,3 +144,67 @@ func revive():
 
 func _on_button_pressed() -> void:
 	revive()
+
+func activate_parry():
+	if parry_active:
+		return
+	
+	parry_active = true
+	parry_cooldown = PARRY_COOLDOWN_TIME
+	
+	# Enable parry shield
+	if parry_shield:
+		parry_shield.monitoring = true
+		parry_shield.get_node("ParryCollisionShape").disabled = false
+	
+	# Show parry sprite
+	if parry_sprite:
+		parry_sprite.visible = true
+		#var tween = create_tween()
+		#tween.tween_property(parry_sprite, "scale", Vector2(10, 10), 0.1)
+		#tween.tween_property(parry_sprite, "scale", Vector2(8, 8), 0.1)
+	
+	# Play parry sound
+	if parry_sound:
+		parry_sound.play()
+	
+	# Visual feedback - flash effect
+	var flash_tween = create_tween()
+	flash_tween.tween_property(self, "modulate", Color.CYAN, 0.1)
+	flash_tween.tween_property(self, "modulate", Color.WHITE, 0.1)
+	
+	# Show cooldown feedback
+	if parry_cooldown > 0:
+		print("DEBUG: Parry on cooldown for ", parry_cooldown, " seconds")
+	
+	# Schedule parry deactivation
+	get_tree().create_timer(PARRY_DURATION).timeout.connect(deactivate_parry)
+	
+	print("DEBUG: Parry activated!")
+
+func deactivate_parry():
+	parry_active = false
+	
+	# Disable parry shield
+	if parry_shield:
+		parry_shield.monitoring = false
+		parry_shield.get_node("ParryCollisionShape").disabled = true
+	
+	# Hide parry sprite
+	if parry_sprite:
+		parry_sprite.visible = false
+	
+	print("DEBUG: Parry deactivated!")
+
+func _on_parry_shield_area_entered(area: Area2D):
+	if not parry_active:
+		return
+	
+	# Check if the area is a bullet from the BulletUpHell system
+	if area.get_parent().name == "Spawning":
+		print("DEBUG: Bullet blocked by parry shield!")
+		# The bullet will be handled by the bullet system's collision logic
+		# We just need to prevent damage to the player
+
+func is_parrying() -> bool:
+	return parry_active

@@ -17,6 +17,14 @@ func bullet_collide_body(body_rid:RID,body:Node,body_shape_index:int,local_shape
 	# Handle player damage
 	if body.is_in_group("Player"):
 		print("DEBUG: Player collision detected!")
+		
+		# Check if player has active parry shield
+		if body.has_method("is_parrying") and body.is_parrying():
+			print("DEBUG: Bullet blocked by parry shield!")
+			# Bullet is blocked, destroy it without dealing damage
+			Spawning.delete_bullet(b)
+			return
+		
 		var damage = B["props"].get("damage", 1.0)
 		print("DEBUG: Bullet damage: ", damage)
 		if body.has_method("take_damage"):

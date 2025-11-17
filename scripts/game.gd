@@ -346,6 +346,7 @@ func _on_level_completed() -> void:
 func _on_reset_button_pressed() -> void:
 	"""Handle game reset event"""
 	# Reset game state
+	player.add_to_group("Player")
 	soul_collected = false
 	level_completed = false
 	game_stopped = false
