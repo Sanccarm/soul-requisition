@@ -97,7 +97,7 @@ func update_music_proximity() -> void:
 
 func play_game_over_music() -> void:
 	"""Stop all music and play game over music"""
-	$AudioStreamPlayer.stop()
+	$AudioStreamPlayer.volume_db = -80.0
 	# Stop drum player if it exists
 	var drum_player = get_node_or_null("DrumPlayer")
 	if drum_player:
@@ -108,7 +108,7 @@ func play_game_over_music() -> void:
 
 func play_game_win_music() -> void:
 	"""Stop all music and play game over music"""
-	$AudioStreamPlayer.stop()
+	$AudioStreamPlayer.volume_db = -80.0
 	# Stop drum player if it exists
 	var drum_player = get_node_or_null("DrumPlayer")
 	if drum_player:
@@ -121,12 +121,12 @@ func resume_normal_music() -> void:
 	"""Stop game over music and resume normal music"""
 	if game_over_music:
 		game_over_music.stop()
-	$AudioStreamPlayer.play()
+	$AudioStreamPlayer.stream_paused = false
 
 func start_drum_music() -> void:
 	"""Start drum-only music when soul is collected"""
-	# Stop normal music and play only drums from beginning
-	$AudioStreamPlayer.stop()
+	# Pause normal music instead of stopping/muting it
+	$AudioStreamPlayer.stream_paused = true
 	# Create a new AudioStreamPlayer for just the drums
 	var drum_player = AudioStreamPlayer.new()
 	drum_player.stream = preload("res://assets/music/thememusic-pads-drums.ogg")
@@ -378,7 +378,7 @@ func _on_reset_button_pressed() -> void:
 	stop_drum_music()
 	if game_over_music:
 		game_over_music.stop()
-	$AudioStreamPlayer.play()
+	$AudioStreamPlayer.stream_paused = false
 
 func reset_player() -> void:
 	"""Reset player to starting position and state"""

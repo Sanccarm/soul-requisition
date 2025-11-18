@@ -444,7 +444,6 @@ tile_set = SubResource("TileSet_i2ok4")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamSynchronized_q0r65")
-bus = &"SoundEffect"
 
 [node name="GameOverMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_game_over")

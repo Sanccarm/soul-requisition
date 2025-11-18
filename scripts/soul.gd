@@ -17,8 +17,16 @@ func _on_body_entered(body: Node) -> void:
 	
 	# Check if the colliding body is the player
 	if body.is_in_group("Player"):
-		if collapse_sound:
-			collapse_sound.play()
+		# Create a dedicated sound effect player that won't be affected by main music
+		var sound_effect_player = AudioStreamPlayer.new()
+		sound_effect_player.stream = preload("res://assets/collapse.wav")
+		sound_effect_player.bus = "SoundEffect"
+		# Add to the main game scene instead of the soul node
+		get_tree().current_scene.add_child(sound_effect_player)
+		sound_effect_player.play()
+		# Auto-cleanup after sound finishes
+		sound_effect_player.finished.connect(func(): sound_effect_player.queue_free())
+		
 		# Emit signal to notify that soul was collected
 		soul_collected.emit()
 		# Hide the soul item
