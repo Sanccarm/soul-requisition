@@ -116,6 +116,11 @@ func play_game_win_music() -> void:
 		drum_player.queue_free()
 	if game_win_music:
 		game_win_music.play()
+		await game_win_music.finished
+
+		# place menu music here
+
+		resume_normal_music()
 
 func resume_normal_music() -> void:
 	"""Stop game over music and resume normal music"""
