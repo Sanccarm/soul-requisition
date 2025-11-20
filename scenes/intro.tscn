@@ -7,60 +7,60 @@
 [ext_resource type="Script" uid="uid://b6mbstaftpedd" path="res://addons/richtext2/rich_text_animation.gd" id="5_0naf5"]
 [ext_resource type="FontFile" uid="uid://dkaohq0rk4idh" path="res://assets/fonts/Tiny5/Tiny5-Regular.ttf" id="6_es01l"]
 
-[sub_resource type="RichTextEffect" id="RichTextEffect_wfs7u"]
+[sub_resource type="RichTextEffect" id="RichTextEffect_es01l"]
 resource_name = "fader"
 script = ExtResource("3_wfs7u")
-metadata/rt = 3844515919774
-
-[sub_resource type="RichTextEffect" id="RichTextEffect_es01l"]
-resource_name = "jit2"
-script = ExtResource("4_es01l")
-metadata/rt = 3844515919774
+metadata/rt = 2394125585658
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_0naf5"]
-resource_name = "fader"
-script = ExtResource("3_wfs7u")
-metadata/rt = 3844918572962
+resource_name = "jit2"
+script = ExtResource("4_es01l")
+metadata/rt = 2394125585658
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_bu1yb"]
 resource_name = "fader"
 script = ExtResource("3_wfs7u")
-metadata/rt = 3845254117283
+metadata/rt = 2394528238851
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_t1qkj"]
 resource_name = "fader"
 script = ExtResource("3_wfs7u")
-metadata/rt = 3845589661630
+metadata/rt = 2394863783180
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_272cy"]
 resource_name = "fader"
 script = ExtResource("3_wfs7u")
-metadata/rt = 3845925194902
+metadata/rt = 2395199327509
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_37iue"]
-resource_name = "jit2"
-script = ExtResource("4_es01l")
-metadata/rt = 3845925194902
-
-[sub_resource type="RichTextEffect" id="RichTextEffect_n6p8m"]
 resource_name = "fader"
 script = ExtResource("3_wfs7u")
-metadata/rt = 3846327857111
+metadata/rt = 2395534871838
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_n6p8m"]
+resource_name = "jit2"
+script = ExtResource("4_es01l")
+metadata/rt = 2395534871838
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_m3r7s"]
 resource_name = "fader"
 script = ExtResource("3_wfs7u")
-metadata/rt = 3846663401416
+metadata/rt = 2395937525031
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_xwriy"]
 resource_name = "fader"
 script = ExtResource("3_wfs7u")
-metadata/rt = 3846998945779
+metadata/rt = 2396273069360
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_u5myo"]
+resource_name = "fader"
+script = ExtResource("3_wfs7u")
+metadata/rt = 2396608613689
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_u05oh"]
 resource_name = "jit2"
 script = ExtResource("4_es01l")
-metadata/rt = 3846998945779
+metadata/rt = 2396608613689
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_u05oh"]
 
@@ -75,7 +75,6 @@ script = ExtResource("1_yjqpq")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_4bx60")
-volume_db = -5.0
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
@@ -106,7 +105,7 @@ theme_override_font_sizes/italics_font_size = 64
 theme_override_font_sizes/mono_font_size = 64
 bbcode_enabled = true
 fit_content = true
-custom_effects = [SubResource("RichTextEffect_wfs7u"), SubResource("RichTextEffect_es01l")]
+custom_effects = [SubResource("RichTextEffect_es01l"), SubResource("RichTextEffect_0naf5")]
 script = ExtResource("5_0naf5")
 _play = false
 _hold = true
@@ -201,7 +200,7 @@ theme_override_font_sizes/italics_font_size = 64
 theme_override_font_sizes/mono_font_size = 64
 bbcode_enabled = true
 fit_content = true
-custom_effects = [SubResource("RichTextEffect_0naf5")]
+custom_effects = [SubResource("RichTextEffect_bu1yb")]
 script = ExtResource("5_0naf5")
 progress = 1.0
 visible_character = 1
@@ -286,7 +285,7 @@ theme_override_font_sizes/italics_font_size = 64
 theme_override_font_sizes/mono_font_size = 64
 bbcode_enabled = true
 fit_content = true
-custom_effects = [SubResource("RichTextEffect_bu1yb")]
+custom_effects = [SubResource("RichTextEffect_t1qkj")]
 script = ExtResource("5_0naf5")
 progress = 1.0
 visible_character = 2
@@ -371,7 +370,7 @@ theme_override_font_sizes/italics_font_size = 64
 theme_override_font_sizes/mono_font_size = 64
 bbcode_enabled = true
 fit_content = true
-custom_effects = [SubResource("RichTextEffect_t1qkj")]
+custom_effects = [SubResource("RichTextEffect_272cy")]
 script = ExtResource("5_0naf5")
 progress = 1.0
 visible_character = 2
@@ -456,7 +455,7 @@ theme_override_font_sizes/italics_font_size = 64
 theme_override_font_sizes/mono_font_size = 64
 bbcode_enabled = true
 fit_content = true
-custom_effects = [SubResource("RichTextEffect_272cy"), SubResource("RichTextEffect_37iue")]
+custom_effects = [SubResource("RichTextEffect_37iue"), SubResource("RichTextEffect_n6p8m")]
 script = ExtResource("5_0naf5")
 _play = false
 _hold = true
@@ -549,7 +548,7 @@ theme_override_font_sizes/italics_font_size = 64
 theme_override_font_sizes/mono_font_size = 64
 bbcode_enabled = true
 fit_content = true
-custom_effects = [SubResource("RichTextEffect_n6p8m")]
+custom_effects = [SubResource("RichTextEffect_m3r7s")]
 script = ExtResource("5_0naf5")
 progress = 1.0
 visible_character = 1
@@ -634,7 +633,7 @@ theme_override_font_sizes/italics_font_size = 64
 theme_override_font_sizes/mono_font_size = 64
 bbcode_enabled = true
 fit_content = true
-custom_effects = [SubResource("RichTextEffect_m3r7s")]
+custom_effects = [SubResource("RichTextEffect_xwriy")]
 script = ExtResource("5_0naf5")
 progress = 1.0
 visible_character = 1
@@ -719,7 +718,7 @@ theme_override_font_sizes/italics_font_size = 64
 theme_override_font_sizes/mono_font_size = 64
 bbcode_enabled = true
 fit_content = true
-custom_effects = [SubResource("RichTextEffect_xwriy"), SubResource("RichTextEffect_u5myo")]
+custom_effects = [SubResource("RichTextEffect_u5myo"), SubResource("RichTextEffect_u05oh")]
 script = ExtResource("5_0naf5")
 _play = false
 _hold = true

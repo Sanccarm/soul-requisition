@@ -505,15 +505,14 @@ func _on_restart_pressed() -> void:
 		set_bullet_speed(175)
 	if Spawning:
 		Spawning.clear_all_bullets()
-	TransitionScene.transition()
-	await TransitionScene.on_transmission_finished
-	get_tree().call_deferred("change_scene_to_file", replay)
-
+	#await get_tree().create_timer(1).timeout
+	#TransitionScene.transition()
+	#await TransitionScene.on_transmission_finished
+	get_tree().call_deferred("change_scene_to_file", replay) #Holy shit so goated!!!!!!
 
 func _on_returntolevelselect_pressed() -> void:
+	Spawning.clear_all_bullets()
+	await get_tree().create_timer(1).timeout
 	TransitionScene.transition()
 	await TransitionScene.on_transmission_finished
-	get_tree().call_deferred("change_scene_to_file", return_to_level_select)
-	# Immediately clear all bullets before returning to level select
-	if Spawning:
-		Spawning.clear_all_bullets()
+	get_tree().call_deferred("change_scene_to_file", return_to_level_select) #Holy shit so goated

@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://fhknv2enlmaw"]
+[gd_scene load_steps=5 format=3 uid="uid://fhknv2enlmaw"]
 
 [ext_resource type="Script" uid="uid://mc7h1gc16gtm" path="res://scripts/level_select.gd" id="1_p0wlc"]
 [ext_resource type="AudioStream" uid="uid://b7b7aa86qmnla" path="res://assets/music/thememusic-muffled.ogg" id="2_muffled"]
 [ext_resource type="FontFile" uid="uid://dkaohq0rk4idh" path="res://assets/fonts/Tiny5/Tiny5-Regular.ttf" id="3_2epne"]
+[ext_resource type="FontFile" uid="uid://74lm1lj5v0au" path="res://assets/fonts/Jacquard_12/Jacquard12-Regular.ttf" id="4_rif6e"]
 
 [node name="levelselect" type="Control"]
 layout_mode = 3
@@ -59,6 +60,19 @@ text = "Level
 "
 flat = true
 
+[node name="back" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -25.0
+offset_right = 38.0
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("4_rif6e")
+text = "Back"
+flat = true
+
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/Level 1" to="." method="_on_level_1_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/Level 2" to="." method="_on_level_1_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/Level 3" to="." method="_on_level_1_pressed"]
+[connection signal="pressed" from="back" to="." method="_on_back_pressed"]

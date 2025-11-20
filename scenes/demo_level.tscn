@@ -375,7 +375,7 @@ script = ExtResource("15_i2ok4")
 bullet = "basic"
 nbr = 10
 iterations = -3
-cooldown_shoot = 0.1
+cooldown_shoot = 0.08
 metadata/_custom_type_script = "uid://c3q5wltkotfys"
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_i2ok4"]
@@ -392,7 +392,7 @@ metadata/_custom_type_script = "uid://c3q5wltkotfys"
 [sub_resource type="PackedDataContainer" id="BulletProps"]
 script = ExtResource("14_rdeo8")
 damage = 1.0
-speed = 175.0
+speed = 125.0
 scale = 0.5
 angle = 0.0
 groups = PackedStringArray()
@@ -403,7 +403,7 @@ spec_trail_length = 0.0
 spec_trail_width = 0.0
 spec_trail_modulate = Color(0.4162407, 0, 0.014655452, 1)
 spec_rotating_speed = 0.0
-death_after_time = 5.0
+death_after_time = 4.0
 death_outside_box = Rect2(0, 0, 0, 0)
 death_from_collision = true
 a_direction_equation = ""
@@ -557,7 +557,7 @@ stream = ExtResource("5_game_over")
 stream = ExtResource("7_y6sut")
 
 [node name="Soul" parent="." instance=ExtResource("5_i2ok4")]
-position = Vector2(100, 519)
+position = Vector2(1108, 351)
 
 [node name="Door" parent="." instance=ExtResource("6_t3uk0")]
 position = Vector2(36, 485)
@@ -598,7 +598,7 @@ script = ExtResource("9_nrjfr")
 id = "spin"
 pattern = SubResource("NavigationPolygon_i2ok4")
 
-[node name="SinglePattern2" type="Path2D" parent="BulletHellPatterns"]
+[node name="SinglePatternFast" type="Path2D" parent="BulletHellPatterns"]
 position = Vector2(474, 259)
 script = ExtResource("9_nrjfr")
 id = "single2"
@@ -620,7 +620,7 @@ props = SubResource("BulletProps")
 light_mask = 63
 visibility_layer = 63
 script = ExtResource("12_6ls7d")
-id = "basic2"
+id = "basicBIG"
 props = SubResource("BulletProps")
 
 [node name="SpawnPoints" type="Node2D" parent="."]
@@ -709,6 +709,36 @@ top_level = true
 position = Vector2(1058, 382)
 script = ExtResource("15_qii72b")
 active = true
+auto_pattern_id = "single2"
+shared_area_name = "0"
+rotating_speed = 0.0
+pool_amount = 50
+auto_start_on_cam = true
+auto_start_after_time = 2.0
+auto_start_at_distance = 1.0
+auto_distance_from = NodePath("../../Player")
+trigger_container = NodePath("")
+
+[node name="LineSpawner3" type="Node2D" parent="SpawnPoints"]
+top_level = true
+position = Vector2(412, 102)
+script = ExtResource("15_qii72b")
+active = true
+auto_pattern_id = "single2"
+shared_area_name = "0"
+rotating_speed = 0.0
+pool_amount = 50
+auto_start_on_cam = true
+auto_start_after_time = 2.0
+auto_start_at_distance = 1.0
+auto_distance_from = NodePath("../../Player")
+trigger_container = NodePath("")
+
+[node name="LineSpawner4" type="Node2D" parent="SpawnPoints"]
+top_level = true
+position = Vector2(768, 623)
+script = ExtResource("15_qii72b")
+active = false
 auto_pattern_id = "single2"
 shared_area_name = "0"
 rotating_speed = 0.0
