@@ -389,7 +389,13 @@ func display_stats():
 	$CanvasLayer/WinStats/VBoxContainer/nearmisses.advance()
 	
 func _on_reset_button_pressed() -> void:
-	"""Handle game reset event"""
+	"""Handle game reset event - completely resets everything as if reloading the scene"""
+	
+	# Reset bullet system first to clear all bullets and patterns
+	if Spawning:
+		Spawning.reset()
+		Spawning.clear_all_bullets()
+	
 	# Reset game state
 	player.add_to_group("Player")
 	soul_collected = false
@@ -399,6 +405,8 @@ func _on_reset_button_pressed() -> void:
 	homing_timer = 0.0
 	countdown_active = false
 	countdown_timer = 20.0
+	level_timer = 0.0  # Reset level timer
+	level_timer_active = true
 	
 	# Reset UI
 	update_soul_status("Soul lost.")
@@ -406,6 +414,7 @@ func _on_reset_button_pressed() -> void:
 		reset_button.disabled = true
 	if timer_label:
 		timer_label.visible = false
+		timer_label.modulate = Color.WHITE
 	
 	# Reset player
 	reset_player()
@@ -424,6 +433,12 @@ func _on_reset_button_pressed() -> void:
 	if game_over_music:
 		game_over_music.stop()
 	$AudioStreamPlayer.stream_paused = false
+	
+	# Reset camera zoom and position
+	if player and player.get_node_or_null("Camera2D"):
+		var camera = player.get_node("Camera2D")
+		camera.zoom = Vector2(1, 1)
+		camera.position = Vector2(0, 0)
 
 func reset_player() -> void:
 	"""Reset player to starting position and state"""

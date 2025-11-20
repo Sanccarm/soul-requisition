@@ -776,7 +776,9 @@ func bullet_movement(delta:float):
 
 		if B["state"] == BState.Spawned:
 			if B["source_node"] is Dictionary: B["position"] = B["spawn_pos"] + B["source_node"]["position"]
-			else: B["position"] = B["source_node"].global_position + B["spawn_pos"]
+			else: 
+				if is_instance_valid(B["source_node"]): B["position"] = B["source_node"].global_position + B["spawn_pos"]
+				else: continue  # Skip this bullet if source node was freed
 
 		elif B["state"] == BState.Moving:
 			# trails
