@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dyl0fh3u2hd5q"]
+[gd_scene load_steps=11 format=3 uid="uid://dyl0fh3u2hd5q"]
 
 [ext_resource type="Script" uid="uid://dtjvreuodiyff" path="res://scenes/main_menu.gd" id="1_ekxnf"]
 [ext_resource type="AudioStream" uid="uid://uxyfqubr3iyo" path="res://assets/music/main_menu.ogg" id="1_l6cm7"]
@@ -10,17 +10,19 @@
 [sub_resource type="RichTextEffect" id="RichTextEffect_rtw2f"]
 resource_name = "fromcursor"
 script = ExtResource("2_rtw2f")
-metadata/rt = 2379277749300
+metadata/rt = 2379646848058
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_oa1go"]
 resource_name = "jit2"
 script = ExtResource("3_oa1go")
-metadata/rt = 2379277749300
+metadata/rt = 2379646848058
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_tbmy8"]
 resource_name = "curspull"
 script = ExtResource("4_tbmy8")
-metadata/rt = 2379277749300
+metadata/rt = 2379646848058
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rtw2f"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -50,9 +52,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -576.0
-offset_top = -46.0
+offset_top = -274.0
 offset_right = 576.0
-offset_bottom = 46.0
+offset_bottom = -182.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/default_color = Color(0.8, 0.8, 0.8, 1)
@@ -69,7 +71,7 @@ script = ExtResource("3_8ln24")
 animation = "fromcursor"
 progress = 1.0
 visible_character = 17
-_transforms = Array[Transform2D]([Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 344.66556, 68.39882), Transform2D(1, 0, 0, 1, 383.6504, 68.364586), Transform2D(1, 0, 0, 1, 431.63037, 68.3206), Transform2D(1, 0, 0, 1, 453.62064, 68.29973), Transform2D(1, 0, 0, 1, 475.61053, 68.27839), Transform2D(1, 0, 0, 1, 540.57837, 68.212494), Transform2D(1, 0, 0, 1, 574.56006, 68.17624), Transform2D(1, 0, 0, 1, 613.5376, 68.13305), Transform2D(1, 0, 0, 1, 661.5077, 68.07742), Transform2D(1, 0, 0, 1, 683.49304, 68.05098), Transform2D(1, 0, 0, 1, 717.46924, 68.00889), Transform2D(1, 0, 0, 1, 739.45294, 67.980835), Transform2D(1, 0, 0, 1, 765.43286, 67.94682), Transform2D(1, 0, 0, 1, 787.41504, 67.917305), Transform2D(1, 0, 0, 1, 826.3815, 67.86325), Transform2D(1, 0, 0, 1, 869.3413, 67.801)])
+_transforms = Array[Transform2D]([Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 344.94525, 69.340454), Transform2D(1, 0, 0, 1, 383.94308, 69.32771), Transform2D(1, 0, 0, 1, 431.94028, 69.31135), Transform2D(1, 0, 0, 1, 453.9389, 69.30358), Transform2D(1, 0, 0, 1, 475.9375, 69.29564), Transform2D(1, 0, 0, 1, 540.93304, 69.271095), Transform2D(1, 0, 0, 1, 574.9305, 69.25758), Transform2D(1, 0, 0, 1, 613.9274, 69.241455), Transform2D(1, 0, 0, 1, 661.92334, 69.22065), Transform2D(1, 0, 0, 1, 683.9214, 69.21073), Transform2D(1, 0, 0, 1, 717.91815, 69.19491), Transform2D(1, 0, 0, 1, 739.91595, 69.18433), Transform2D(1, 0, 0, 1, 765.91327, 69.17148), Transform2D(1, 0, 0, 1, 787.9109, 69.16029), Transform2D(1, 0, 0, 1, 826.9064, 69.13972), Transform2D(1, 0, 0, 1, 869.90106, 69.11586)])
 _char_size = Array[Vector2]([Vector2(0, 0), Vector2(37, 48), Vector2(46, 48), Vector2(20, 48), Vector2(0, 48), Vector2(63, 48), Vector2(33, 48), Vector2(37, 48), Vector2(46, 48), Vector2(20, 48), Vector2(33, 48), Vector2(20, 48), Vector2(24, 48), Vector2(20, 48), Vector2(37, 48), Vector2(42, 48), Vector2(0, 48)])
 _alpha = Array[float]([1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0])
 _alpha_goal = Array[float]([1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0])
@@ -139,8 +141,8 @@ override_bbcodeEnabled = true
 override_clipContents = false
 override_fitContent = true
 metadata/_custom_type_script = "uid://b6mbstaftpedd"
-metadata/mouse_position = Vector2(1902.2766, -611.99634)
-metadata/frame = 1262
+metadata/mouse_position = Vector2(2341.905, -264.5)
+metadata/frame = 210338
 
 [node name="VBoxContainer" type="VBoxContainer" parent="ColorRect"]
 layout_mode = 1
@@ -149,8 +151,21 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
+offset_left = -48.0
+offset_top = 82.5
+offset_right = 48.0
+offset_bottom = 113.5
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="StartButton" type="Button" parent="ColorRect/VBoxContainer"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_rtw2f")
+action_mode = 0
+text = "Start Game
+"
+flat = true
 
 [node name="MenuMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("1_l6cm7")
