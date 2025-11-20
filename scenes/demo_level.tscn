@@ -475,7 +475,7 @@ turbulence_noise_scale = 0.0
 [sub_resource type="RichTextEffect" id="RichTextEffect_iqpg7"]
 resource_name = "fader"
 script = ExtResource("19_t3uk0")
-metadata/rt = 2374395579445
+metadata/rt = 22887679502810
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_pe5t1")
@@ -507,7 +507,6 @@ collision_mask = 3
 script = ExtResource("8_cgsjm")
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
-ignore_rotation = false
 zoom = Vector2(2, 2)
 position_smoothing_enabled = true
 position_smoothing_speed = 3.0

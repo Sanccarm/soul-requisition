@@ -36,6 +36,7 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	var direction = Input.get_vector("left","right", "up", "down")
 	velocity = direction * SPEED
+	rotation = lerp_angle(rotation, atan2(-velocity.x, -velocity.y), delta*20.0)
 	move_and_slide()
 	
 	# Handle parry cooldown

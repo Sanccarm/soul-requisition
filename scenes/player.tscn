@@ -14,6 +14,7 @@ radius = 22.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-0.24999925, 4.7683716e-07)
+rotation = -6.2831855
 scale = Vector2(0.09, 0.088)
 texture = ExtResource("1_qhqgy")
 

@@ -1,9 +1,23 @@
-[gd_scene format=3 uid="uid://fhknv2enlmaw"]
+[gd_scene load_steps=3 format=3 uid="uid://fhknv2enlmaw"]
 
-[node name="Control" type="Control"]
+[ext_resource type="Script" uid="uid://mc7h1gc16gtm" path="res://scenes/level_select.gd" id="1_p0wlc"]
+[ext_resource type="AudioStream" uid="uid://b7b7aa86qmnla" path="res://assets/music/thememusic-muffled.ogg" id="2_muffled"]
+
+[node name="levelselect" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_p0wlc")
+
+[node name="LevelSelect" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_muffled")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
