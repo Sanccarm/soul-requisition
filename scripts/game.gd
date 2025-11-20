@@ -501,17 +501,19 @@ func is_soul_collected() -> bool:
 
 
 func _on_restart_pressed() -> void:
+	if timer_label.text == "00:00.00":
+		set_bullet_speed(175)
 	if Spawning:
 		Spawning.clear_all_bullets()
 	TransitionScene.transition()
 	await TransitionScene.on_transmission_finished
-	get_tree().change_scene_to_file(replay)
+	get_tree().call_deferred("change_scene_to_file", replay)
 
 
 func _on_returntolevelselect_pressed() -> void:
 	TransitionScene.transition()
 	await TransitionScene.on_transmission_finished
-	get_tree().change_scene_to_file(return_to_level_select)
+	get_tree().call_deferred("change_scene_to_file", return_to_level_select)
 	# Immediately clear all bullets before returning to level select
 	if Spawning:
 		Spawning.clear_all_bullets()

@@ -474,70 +474,70 @@ color = Color(0.65, 0, 0.021666646, 0.62352943)
 turbulence_noise_strength = 5.31
 turbulence_noise_scale = 0.0
 
+[sub_resource type="RichTextEffect" id="RichTextEffect_nrjfr"]
+resource_name = "fader"
+script = ExtResource("19_t3uk0")
+metadata/rt = 2369865731107
+
 [sub_resource type="RichTextEffect" id="RichTextEffect_siyaw"]
 resource_name = "fader"
 script = ExtResource("19_t3uk0")
-metadata/rt = 2395618757684
+metadata/rt = 2370268384297
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_yhpex"]
 resource_name = "fader"
 script = ExtResource("19_t3uk0")
-metadata/rt = 2396021410874
+metadata/rt = 2370671037490
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_6ls7d"]
 resource_name = "fader"
 script = ExtResource("19_t3uk0")
-metadata/rt = 2396424064067
+metadata/rt = 2371073690683
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_2v5tb"]
 resource_name = "fader"
 script = ExtResource("19_t3uk0")
-metadata/rt = 2396826717260
+metadata/rt = 2371476343876
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_rdeo8"]
 resource_name = "fader"
 script = ExtResource("19_t3uk0")
-metadata/rt = 2397229370453
+metadata/rt = 2372113878110
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_qii72"]
 resource_name = "fader"
 script = ExtResource("19_t3uk0")
-metadata/rt = 2397866904687
+metadata/rt = 2372583640171
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_du7la"]
-resource_name = "fader"
-script = ExtResource("19_t3uk0")
-metadata/rt = 42579936777237
-
-[sub_resource type="RichTextEffect" id="RichTextEffect_x8j88"]
 resource_name = "jit2"
 script = ExtResource("23_nrjfr")
-metadata/rt = 42579936777237
+metadata/rt = 2372583640171
 
-[sub_resource type="RichTextEffect" id="RichTextEffect_nrjfr"]
+[sub_resource type="RichTextEffect" id="RichTextEffect_x8j88"]
 resource_name = "fader"
 script = ExtResource("19_t3uk0")
-metadata/rt = 42580037438648
+metadata/rt = 2372986293361
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_d7k28"]
 resource_name = "jit2"
 script = ExtResource("23_nrjfr")
-metadata/rt = 42580037438648
+metadata/rt = 2372986293361
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_2euh2"]
 resource_name = "fader"
 script = ExtResource("19_t3uk0")
-metadata/rt = 42580138103774
+metadata/rt = 2373388946554
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_2o4aa"]
 resource_name = "fader"
 script = ExtResource("19_t3uk0")
-metadata/rt = 42580238767059
+metadata/rt = 2373791599747
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_h4d3l"]
 resource_name = "fader"
 script = ExtResource("19_t3uk0")
-metadata/rt = 42580339421543
+metadata/rt = 2374194252940
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_pe5t1")
@@ -760,7 +760,7 @@ theme_override_font_sizes/italics_font_size = 64
 theme_override_font_sizes/mono_font_size = 64
 bbcode_enabled = true
 fit_content = true
-custom_effects = [SubResource("RichTextEffect_siyaw")]
+custom_effects = [SubResource("RichTextEffect_nrjfr")]
 script = ExtResource("19_i2ok4")
 _play = false
 _hold = true
@@ -845,7 +845,7 @@ theme_override_font_sizes/italics_font_size = 64
 theme_override_font_sizes/mono_font_size = 64
 bbcode_enabled = true
 fit_content = true
-custom_effects = [SubResource("RichTextEffect_yhpex")]
+custom_effects = [SubResource("RichTextEffect_siyaw")]
 script = ExtResource("19_i2ok4")
 _play = false
 _hold = true
@@ -930,7 +930,7 @@ theme_override_font_sizes/italics_font_size = 45
 theme_override_font_sizes/mono_font_size = 45
 bbcode_enabled = true
 fit_content = true
-custom_effects = [SubResource("RichTextEffect_6ls7d")]
+custom_effects = [SubResource("RichTextEffect_yhpex")]
 script = ExtResource("19_i2ok4")
 _play = false
 _hold = true
@@ -1015,7 +1015,7 @@ theme_override_font_sizes/italics_font_size = 45
 theme_override_font_sizes/mono_font_size = 45
 bbcode_enabled = true
 fit_content = true
-custom_effects = [SubResource("RichTextEffect_2v5tb")]
+custom_effects = [SubResource("RichTextEffect_6ls7d")]
 script = ExtResource("19_i2ok4")
 _play = false
 _hold = true
@@ -1100,7 +1100,7 @@ theme_override_font_sizes/italics_font_size = 45
 theme_override_font_sizes/mono_font_size = 45
 bbcode_enabled = true
 fit_content = true
-custom_effects = [SubResource("RichTextEffect_rdeo8")]
+custom_effects = [SubResource("RichTextEffect_2v5tb")]
 script = ExtResource("19_i2ok4")
 _play = false
 _hold = true
@@ -1255,7 +1255,7 @@ theme_override_font_sizes/italics_font_size = 16
 theme_override_font_sizes/mono_font_size = 16
 bbcode_enabled = true
 fit_content = true
-custom_effects = [SubResource("RichTextEffect_qii72")]
+custom_effects = [SubResource("RichTextEffect_rdeo8")]
 script = ExtResource("19_i2ok4")
 _forced_finish_delay = -0.02550955555555564
 default_wait_time = 1.0
@@ -1349,7 +1349,7 @@ theme_override_font_sizes/italics_font_size = 64
 theme_override_font_sizes/mono_font_size = 64
 bbcode_enabled = true
 fit_content = true
-custom_effects = [SubResource("RichTextEffect_du7la"), SubResource("RichTextEffect_x8j88")]
+custom_effects = [SubResource("RichTextEffect_qii72"), SubResource("RichTextEffect_du7la")]
 script = ExtResource("19_i2ok4")
 _play = false
 _hold = true
@@ -1434,7 +1434,7 @@ theme_override_font_sizes/italics_font_size = 64
 theme_override_font_sizes/mono_font_size = 64
 bbcode_enabled = true
 fit_content = true
-custom_effects = [SubResource("RichTextEffect_nrjfr"), SubResource("RichTextEffect_d7k28")]
+custom_effects = [SubResource("RichTextEffect_x8j88"), SubResource("RichTextEffect_d7k28")]
 script = ExtResource("19_i2ok4")
 _play = false
 _hold = true
@@ -1788,7 +1788,6 @@ text = "Return"
 flat = true
 
 [connection signal="pressed" from="CanvasLayer/WinStats/Restart" to="." method="_on_restart_pressed"]
-[connection signal="pressed" from="CanvasLayer/WinStats/Returntolevelselect" to="." method="_on_restart_pressed"]
 [connection signal="pressed" from="CanvasLayer/WinStats/Returntolevelselect" to="." method="_on_returntolevelselect_pressed"]
 [connection signal="pressed" from="CanvasLayer/Button" to="Player" method="_on_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/LoseStats/Restart" to="." method="_on_restart_pressed"]
