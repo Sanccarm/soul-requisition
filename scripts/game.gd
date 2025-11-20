@@ -4,6 +4,8 @@ extends Node2D
 # NODE REFERENCES & VARIABLES
 # =============================================================================
 
+const replay = "res://scenes/demo_level.tscn"
+
 @onready var player: CharacterBody2D = $Player
 @onready var soul_status_label: RichTextAnimation = $CanvasLayer/SoulStatus
 @onready var reset_button: Button = $CanvasLayer/ResetButton
@@ -19,6 +21,8 @@ var game_stopped: bool = false
 # Timer variables
 var countdown_timer: float = 20.0
 var countdown_active: bool = false
+var level_timer: float = 0.0
+var level_timer_active: bool = true
 
 # Bullet system variables
 var homing_timer: float = 0.0
@@ -56,6 +60,9 @@ func _process(delta: float) -> void:
 	
 	# Update countdown timer if active
 	update_countdown_timer(delta)
+	
+	# Update level timer if active
+	update_level_timer(delta)
 	
 	# Update homing timer if active
 	update_homing_timer(delta)
@@ -265,7 +272,6 @@ func update_countdown_timer(delta: float) -> void:
 			update_existing_bullets_homing(1000.0, player)
 
 
-
 func update_timer_display() -> void:
 	"""Update the timer display with milliseconds"""
 	if timer_label:
@@ -275,9 +281,23 @@ func update_timer_display() -> void:
 		var milliseconds = int((countdown_timer - int(countdown_timer)) * 100)
 		timer_label.text = "%02d:%02d.%02d" % [minutes, seconds, milliseconds]
 
+func update_level_timer(delta: float) -> void:
+	"""Update the level timer that counts up from when level starts"""
+	if level_timer_active:
+		level_timer += delta
+
+func get_timer_label():
+	return timer_label.text
+
+func get_level_time() -> float:
+	"""Get the current level time - can be accessed from other scripts"""
+	return level_timer
+
 # =============================================================================
 # UI SYSTEM FUNCTIONS
 # =============================================================================
+
+
 
 func initialize_ui() -> void:
 	"""Initialize UI elements"""
@@ -337,9 +357,9 @@ func _on_level_completed() -> void:
 		zoomout.parallel().tween_property($"Player/Camera2D", "zoom:x", 3, 0.1)
 		zoomout.parallel().tween_property($"Player/Camera2D", "zoom:y", 3, 0.1)
 		var cameraslide = get_tree().create_tween()
-
 		cameraslide.parallel().tween_property($"Player/Camera2D", "position:x", -100 , .1)
 		play_game_win_music()
+		display_stats()
 		level_completed = true
 		game_stopped = true
 		update_soul_status("[green][wave amp=20]Soul Returned.")
@@ -350,6 +370,24 @@ func _on_level_completed() -> void:
 			player.remove_from_group("Player")
 			player.set_physics_process(false)
 
+func display_stats():
+	var total_time = get_level_time()
+	var total_collaspe_time = get_timer_label()
+	soul_status_label.visible = false
+	timer_label.visible = false
+	var slideout = get_tree().create_tween()
+	await slideout.tween_property($CanvasLayer/WinStats,"position:x", 0, .5).set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_IN_OUT).finished
+	$CanvasLayer/WinStats/VBoxContainer/levelcompleted.advance()
+	await get_tree().create_timer(1).timeout
+	$CanvasLayer/WinStats/VBoxContainer/soulreturned.advance()
+	await get_tree().create_timer(1).timeout
+	$CanvasLayer/WinStats/VBoxContainer/totaltime.bbcode = "[lightgreen]Total Time: %s" %[total_time]  
+	$CanvasLayer/WinStats/VBoxContainer/totaltime.advance()
+	print(total_collaspe_time)
+	$CanvasLayer/WinStats/VBoxContainer/totalcollapsetime.bbcode = "[lightgreen]Collapse Time Left: %s" % [total_collaspe_time]
+	$CanvasLayer/WinStats/VBoxContainer/totalcollapsetime.advance()
+	$CanvasLayer/WinStats/VBoxContainer/nearmisses.advance()
+	
 func _on_reset_button_pressed() -> void:
 	"""Handle game reset event"""
 	# Reset game state
@@ -421,3 +459,9 @@ func reset_door() -> void:
 func is_soul_collected() -> bool:
 	"""Check if soul has been collected"""
 	return soul_collected
+
+
+func _on_restart_pressed() -> void:
+	TransitionScene.transition()
+	await TransitionScene.on_transmission_finished
+	get_tree().change_scene_to_file(replay)
