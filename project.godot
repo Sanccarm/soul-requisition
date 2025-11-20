@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="soul-requisition"
-run/main_scene="res://scenes/demo_level.tscn"
+run/main_scene="uid://dyl0fh3u2hd5q"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 config/icon="res://icon.svg"
 
@@ -69,4 +69,7 @@ environment/defaults/default_clear_color=Color(0.118203394, 0.009078234, 0.00079
 
 [richer_text_label]
 
-fonts={}
+fonts={
+&"Jacquard12": "res://assets/fonts/Jacquard_12/Jacquard12-Regular.ttf",
+&"Tiny5": "res://assets/fonts/Tiny5/Tiny5-Regular.ttf"
+}

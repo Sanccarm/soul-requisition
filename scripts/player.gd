@@ -83,7 +83,7 @@ func died():
 	# Update soul status label to "You're Lost."
 	var soul_status_label = $"../CanvasLayer/SoulStatus"
 	if soul_status_label:
-		soul_status_label.text = "You're Lost."
+		soul_status_label.bbcode = "[red][jit2 freq=50]You're Lost."
 	
 	# Play game over music
 	var game_node = get_parent()

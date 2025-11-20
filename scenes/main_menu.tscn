@@ -1,6 +1,26 @@
-[gd_scene load_steps=2 format=3 uid="uid://dfu7lqf86udpq"]
+[gd_scene load_steps=10 format=3 uid="uid://dyl0fh3u2hd5q"]
 
+[ext_resource type="Script" uid="uid://dtjvreuodiyff" path="res://scenes/main_menu.gd" id="1_ekxnf"]
 [ext_resource type="AudioStream" uid="uid://uxyfqubr3iyo" path="res://assets/music/main_menu.ogg" id="1_l6cm7"]
+[ext_resource type="Script" uid="uid://qr22d0tdlk1k" path="res://addons/richtext2/text_effects/anims/rte_fromcursor.gd" id="2_rtw2f"]
+[ext_resource type="Script" uid="uid://b6mbstaftpedd" path="res://addons/richtext2/rich_text_animation.gd" id="3_8ln24"]
+[ext_resource type="Script" uid="uid://cuyp5kmoygg6s" path="res://addons/richtext2/text_effects/effects/rte_jit2.gd" id="3_oa1go"]
+[ext_resource type="Script" uid="uid://dhbxvg36y8pfd" path="res://addons/richtext2/text_effects/effects/rte_curspull.gd" id="4_tbmy8"]
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_rtw2f"]
+resource_name = "fromcursor"
+script = ExtResource("2_rtw2f")
+metadata/rt = 2379277749300
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_oa1go"]
+resource_name = "jit2"
+script = ExtResource("3_oa1go")
+metadata/rt = 2379277749300
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_tbmy8"]
+resource_name = "curspull"
+script = ExtResource("4_tbmy8")
+metadata/rt = 2379277749300
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -9,6 +29,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_ekxnf")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
@@ -19,5 +40,117 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.11764706, 0.007843138, 0, 1)
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="title" type="RichTextLabel" parent="ColorRect"]
+clip_contents = false
+custom_minimum_size = Vector2(0, 92)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -576.0
+offset_top = -46.0
+offset_right = 576.0
+offset_bottom = 46.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0.8, 0.8, 0.8, 1)
+theme_override_colors/font_outline_color = Color(0.16, 0.16, 0.16, 1)
+theme_override_font_sizes/normal_font_size = 91
+theme_override_font_sizes/bold_font_size = 91
+theme_override_font_sizes/bold_italics_font_size = 91
+theme_override_font_sizes/italics_font_size = 91
+theme_override_font_sizes/mono_font_size = 91
+bbcode_enabled = true
+fit_content = true
+custom_effects = [SubResource("RichTextEffect_rtw2f"), SubResource("RichTextEffect_oa1go"), SubResource("RichTextEffect_tbmy8")]
+script = ExtResource("3_8ln24")
+animation = "fromcursor"
+progress = 1.0
+visible_character = 17
+_transforms = Array[Transform2D]([Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 344.66556, 68.39882), Transform2D(1, 0, 0, 1, 383.6504, 68.364586), Transform2D(1, 0, 0, 1, 431.63037, 68.3206), Transform2D(1, 0, 0, 1, 453.62064, 68.29973), Transform2D(1, 0, 0, 1, 475.61053, 68.27839), Transform2D(1, 0, 0, 1, 540.57837, 68.212494), Transform2D(1, 0, 0, 1, 574.56006, 68.17624), Transform2D(1, 0, 0, 1, 613.5376, 68.13305), Transform2D(1, 0, 0, 1, 661.5077, 68.07742), Transform2D(1, 0, 0, 1, 683.49304, 68.05098), Transform2D(1, 0, 0, 1, 717.46924, 68.00889), Transform2D(1, 0, 0, 1, 739.45294, 67.980835), Transform2D(1, 0, 0, 1, 765.43286, 67.94682), Transform2D(1, 0, 0, 1, 787.41504, 67.917305), Transform2D(1, 0, 0, 1, 826.3815, 67.86325), Transform2D(1, 0, 0, 1, 869.3413, 67.801)])
+_char_size = Array[Vector2]([Vector2(0, 0), Vector2(37, 48), Vector2(46, 48), Vector2(20, 48), Vector2(0, 48), Vector2(63, 48), Vector2(33, 48), Vector2(37, 48), Vector2(46, 48), Vector2(20, 48), Vector2(33, 48), Vector2(20, 48), Vector2(24, 48), Vector2(20, 48), Vector2(37, 48), Vector2(42, 48), Vector2(0, 48)])
+_alpha = Array[float]([1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0])
+_alpha_goal = Array[float]([1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0])
+_forced_finish_delay = -0.03883044444444397
+animation = "fromcursor"
+default_wait_time = 1.0
+play_on_bbcode = true
+play_speed = 10.0
+fade_out = false
+fade_in_speed = 10.0
+fade_out_speed = 120.0
+ctc_offset = Vector2(1, -0.5)
+ctc_on_finished = false
+ctc_on_wait = false
+shortcut_expression = true
+shortcut_bookmark = true
+signal_quotes = true
+signal_stars = true
+bbcode = "[jit2][curspull]Soul Requisition
+"
+effects = 2
+alignment = 1
+color = Color(0.8, 0.8, 0.8, 1)
+emoji_scale = 1.0
+font = "Jacquard12"
+font_auto_setup = true
+font_size = 91
+font_bold_weight = 1.5
+font_italics_slant = 0.25
+font_italics_weight = -0.25
+shadow_enabled = false
+shadow_offset = 0.08
+shadow_alpha = 0.25
+shadow_outline_size = 0.1
+outline_size = 0
+outline_mode = 1
+outline_adjust = 0.8
+outline_hue_adjust = 0.0125
+nicer_quotes_enabled = true
+nicer_quotes_format = "“%s”"
+markdown_enabled = true
+markdown_format_bold = "[b]%s[]"
+markdown_format_italics = "[i]%s[]"
+markdown_format_bold_italics = "[bi]%s[]"
+markdown_format_highlight = "[green;sin]%s[]"
+markdown_format_bold2 = "[b]*%s*[]"
+markdown_format_italics2 = "[i;gray]*%s*[]"
+markdown_format_bold_italics2 = "%s"
+context_enabled = true
+context_path = NodePath("/root/State")
+context_state = {}
+context_rich_objects = true
+context_rich_ints = true
+context_rich_array = true
+autostyle_numbers = true
+autostyle_numbers_tag = "[salmon]%s[]"
+autostyle_numbers_pad_decimals = true
+autostyle_numbers_decimals = 2
+autostyle_emojis = true
+effect_weight = 0.0
+image_path = "res://"
+image_resize_to_font_size = true
+image_scale = 1.0
+meta_auto_https = true
+meta_cursor = 2
+override_bbcodeEnabled = true
+override_clipContents = false
+override_fitContent = true
+metadata/_custom_type_script = "uid://b6mbstaftpedd"
+metadata/mouse_position = Vector2(1902.2766, -611.99634)
+metadata/frame = 1262
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MenuMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("1_l6cm7")

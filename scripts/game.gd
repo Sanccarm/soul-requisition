@@ -5,7 +5,7 @@ extends Node2D
 # =============================================================================
 
 @onready var player: CharacterBody2D = $Player
-@onready var soul_status_label: Label = $CanvasLayer/SoulStatus
+@onready var soul_status_label: RichTextAnimation = $CanvasLayer/SoulStatus
 @onready var reset_button: Button = $CanvasLayer/ResetButton
 @onready var game_over_music: AudioStreamPlayer = $GameOverMusic
 @onready var game_win_music: AudioStreamPlayer = $GameWinMusic
@@ -258,7 +258,7 @@ func update_countdown_timer(delta: float) -> void:
 			set_bullet_speed(500)
 			# Timer expired - set maximum homing intensity
 			countdown_timer = 0
-			timer_label.text = "00:00.00"
+			timer_label.bbcode = "00:00.00"
 			countdown_active = false
 			timer_label.modulate = Color.RED
 			# Set maximum homing strength when timer reaches zero
@@ -283,7 +283,7 @@ func initialize_ui() -> void:
 	"""Initialize UI elements"""
 	# Initialize soul status label
 	if soul_status_label:
-		soul_status_label.text = "Soul lost."
+		soul_status_label.bbcode = "[jit2][red]Soul lost."
 	
 	# Initialize reset button
 	if reset_button:
@@ -293,7 +293,7 @@ func initialize_ui() -> void:
 func update_soul_status(text: String) -> void:
 	"""Update the soul status label text"""
 	if soul_status_label:
-		soul_status_label.text = text
+		soul_status_label.bbcode = text
 
 # =============================================================================
 # GAME LOGIC FUNCTIONS
@@ -314,7 +314,7 @@ func connect_signals() -> void:
 func _on_soul_collected() -> void:
 	"""Handle soul collection event"""
 	soul_collected = true
-	update_soul_status("Soul recollected.")
+	update_soul_status("[yellow][jit2] Soul recollected.")
 	
 	# Start 20-second countdown timer
 	countdown_timer = 20.0
@@ -341,7 +341,7 @@ func _on_level_completed() -> void:
 		play_game_win_music()
 		level_completed = true
 		game_stopped = true
-		update_soul_status("Soul Returned.")
+		update_soul_status("[green][wave amp=20]Soul Returned.")
 		if reset_button:
 			reset_button.disabled = false
 		# Stop player movement
