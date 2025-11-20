@@ -8,8 +8,9 @@ A game where you, a retired **soul** reaper, go through Hell and back to return 
 
 Made for the GVSU 2025 Fall GameJam
 
-Credits: \
+## Credits:
 Scripting: Carmelo Sanchez \
 Assets: Elijah Morgan, Carmelo Sanchez \
 Music: Carmelo Sanchez
+
 
