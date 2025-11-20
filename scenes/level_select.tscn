@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://fhknv2enlmaw"]
 
-[ext_resource type="Script" uid="uid://mc7h1gc16gtm" path="res://scenes/level_select.gd" id="1_p0wlc"]
+[ext_resource type="Script" uid="uid://mc7h1gc16gtm" path="res://scripts/level_select.gd" id="1_p0wlc"]
 [ext_resource type="AudioStream" uid="uid://b7b7aa86qmnla" path="res://assets/music/thememusic-muffled.ogg" id="2_muffled"]
 
 [node name="levelselect" type="Control"]

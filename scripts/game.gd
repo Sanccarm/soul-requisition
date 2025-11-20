@@ -332,6 +332,7 @@ func _on_soul_collected() -> void:
 func _on_level_completed() -> void:
 	"""Handle level completion event"""
 	if not level_completed and soul_collected:
+		player.rotation = 0
 		var zoomout = get_tree().create_tween()
 		zoomout.parallel().tween_property($"Player/Camera2D", "zoom:x", 3, 0.1)
 		zoomout.parallel().tween_property($"Player/Camera2D", "zoom:y", 3, 0.1)
