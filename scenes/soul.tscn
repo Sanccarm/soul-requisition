@@ -11,7 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://carf5oufjj720" path="res://assets/soulFrames/soul7.png" id="9_6l5d3"]
 [ext_resource type="Texture2D" uid="uid://b7vtopkqyuc53" path="res://assets/soulFrames/soul8.png" id="10_tnv34"]
 [ext_resource type="Texture2D" uid="uid://bci06s7syq80m" path="res://assets/soulFrames/soul9.png" id="11_gg2le"]
-[ext_resource type="AudioStream" uid="uid://ctagf22u44w4t" path="res://assets/collapse.wav" id="12_5yn65"]
+[ext_resource type="AudioStream" uid="uid://bybj3xpyj54qb" path="res://addons/BulletUpHell/Bullet/Hit Hurt.wav" id="12_5yn65"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_44dps"]
 animations = [{

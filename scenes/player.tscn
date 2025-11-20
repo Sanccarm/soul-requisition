@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://el1f0wci62nh"]
 
 [ext_resource type="Texture2D" uid="uid://p58ymjtnj3ns" path="res://icon.svg" id="1_3vyb7"]
-[ext_resource type="AudioStream" uid="uid://bybj3xpyj54qb" path="res://addons/BulletUpHell/Bullet/Hit Hurt.wav" id="2_parry_sound"]
 [ext_resource type="Texture2D" uid="uid://ba7wbcogjfjfh" path="res://assets/bubble.png" id="2_qhqgy"]
+[ext_resource type="AudioStream" uid="uid://ctagf22u44w4t" path="res://assets/collapse.wav" id="3_qhqgy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3vyb7"]
 size = Vector2(15, 14)
@@ -34,4 +34,4 @@ scale = Vector2(0.05, 0.05)
 texture = ExtResource("2_qhqgy")
 
 [node name="ParrySound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("2_parry_sound")
+stream = ExtResource("3_qhqgy")

@@ -258,6 +258,7 @@ func update_countdown_timer(delta: float) -> void:
 			set_bullet_speed(500)
 			# Timer expired - set maximum homing intensity
 			countdown_timer = 0
+			timer_label.text = "00:00.00"
 			countdown_active = false
 			timer_label.modulate = Color.RED
 			# Set maximum homing strength when timer reaches zero
