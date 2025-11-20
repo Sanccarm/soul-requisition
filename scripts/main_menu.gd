@@ -1,5 +1,7 @@
 extends Control
 
+const scene_intro = preload("res://scenes/intro.tscn")
+
 @onready var title = $ColorRect/title
 @onready var start = $ColorRect/VBoxContainer/StartButton
 
@@ -24,4 +26,6 @@ func button_fade_in():
 
 
 func _on_start_button_pressed() -> void:
-	get_tree().change_scene_to_file("res://scenes/intro.tscn")
+	TransitionScene.transition()
+	await TransitionScene.on_transmission_finished
+	get_tree().change_scene_to_packed(scene_intro)

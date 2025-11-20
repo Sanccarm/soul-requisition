@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://dyl0fh3u2hd5q"]
 
-[ext_resource type="Script" uid="uid://dtjvreuodiyff" path="res://scenes/main_menu.gd" id="1_ekxnf"]
+[ext_resource type="Script" uid="uid://dtjvreuodiyff" path="res://scripts/main_menu.gd" id="1_ekxnf"]
 [ext_resource type="AudioStream" uid="uid://uxyfqubr3iyo" path="res://assets/music/main_menu.ogg" id="1_l6cm7"]
 [ext_resource type="Script" uid="uid://qr22d0tdlk1k" path="res://addons/richtext2/text_effects/anims/rte_fromcursor.gd" id="2_rtw2f"]
 [ext_resource type="Script" uid="uid://b6mbstaftpedd" path="res://addons/richtext2/rich_text_animation.gd" id="3_8ln24"]
@@ -10,17 +10,17 @@
 [sub_resource type="RichTextEffect" id="RichTextEffect_rtw2f"]
 resource_name = "fromcursor"
 script = ExtResource("2_rtw2f")
-metadata/rt = 2380083055682
+metadata/rt = 2383086177384
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_oa1go"]
 resource_name = "jit2"
 script = ExtResource("3_oa1go")
-metadata/rt = 2380083055682
+metadata/rt = 2383086177384
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_tbmy8"]
 resource_name = "curspull"
 script = ExtResource("4_tbmy8")
-metadata/rt = 2380083055682
+metadata/rt = 2383086177384
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rtw2f"]
 
@@ -32,6 +32,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ekxnf")
+
+[node name="MenuMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_l6cm7")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
@@ -71,7 +74,7 @@ script = ExtResource("3_8ln24")
 animation = "fromcursor"
 progress = 1.0
 visible_character = 17
-_transforms = Array[Transform2D]([Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 344.8723, 68.99746), Transform2D(1, 0, 0, 1, 383.8694, 68.98612), Transform2D(1, 0, 0, 1, 431.8656, 68.97183), Transform2D(1, 0, 0, 1, 453.86383, 68.96515), Transform2D(1, 0, 0, 1, 475.862, 68.95838), Transform2D(1, 0, 0, 1, 540.8564, 68.93788), Transform2D(1, 0, 0, 1, 574.85333, 68.92684), Transform2D(1, 0, 0, 1, 613.84973, 68.91391), Transform2D(1, 0, 0, 1, 661.8451, 68.897575), Transform2D(1, 0, 0, 1, 683.8429, 68.88993), Transform2D(1, 0, 0, 1, 717.8394, 68.877914), Transform2D(1, 0, 0, 1, 739.8371, 68.87001), Transform2D(1, 0, 0, 1, 765.8343, 68.86052), Transform2D(1, 0, 0, 1, 787.83185, 68.85238), Transform2D(1, 0, 0, 1, 826.8274, 68.83766), Transform2D(1, 0, 0, 1, 869.8223, 68.821014)])
+_transforms = Array[Transform2D]([Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 338.55075, 66.83754), Transform2D(1, 0, 0, 1, 377.45383, 66.91504), Transform2D(1, 0, 0, 1, 425.3441, 67.00899), Transform2D(1, 0, 0, 1, 447.29712, 67.05137), Transform2D(1, 0, 0, 1, 469.2521, 67.09327), Transform2D(1, 0, 0, 1, 534.1299, 67.21387), Transform2D(1, 0, 0, 1, 568.0719, 67.27489), Transform2D(1, 0, 0, 1, 607.00995, 67.34302), Transform2D(1, 0, 0, 1, 654.9399, 67.42406), Transform2D(1, 0, 0, 1, 676.90985, 67.46014), Transform2D(1, 0, 0, 1, 710.86584, 67.514595), Transform2D(1, 0, 0, 1, 732.8389, 67.54899), Transform2D(1, 0, 0, 1, 758.8085, 67.58878), Transform2D(1, 0, 0, 1, 780.7838, 67.621735), Transform2D(1, 0, 0, 1, 819.74255, 67.67856), Transform2D(1, 0, 0, 1, 862.7004, 67.73889)])
 _char_size = Array[Vector2]([Vector2(0, 0), Vector2(37, 48), Vector2(46, 48), Vector2(20, 48), Vector2(0, 48), Vector2(63, 48), Vector2(33, 48), Vector2(37, 48), Vector2(46, 48), Vector2(20, 48), Vector2(33, 48), Vector2(20, 48), Vector2(24, 48), Vector2(20, 48), Vector2(37, 48), Vector2(42, 48), Vector2(0, 48)])
 _alpha = Array[float]([1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0])
 _alpha_goal = Array[float]([1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0])
@@ -141,8 +144,8 @@ override_bbcodeEnabled = true
 override_clipContents = false
 override_fitContent = true
 metadata/_custom_type_script = "uid://b6mbstaftpedd"
-metadata/mouse_position = Vector2(3609.064, -776.09766)
-metadata/frame = 17964
+metadata/mouse_position = Vector2(-252.74841, -696.64233)
+metadata/frame = 86646
 
 [node name="VBoxContainer" type="VBoxContainer" parent="ColorRect"]
 layout_mode = 1
@@ -166,8 +169,5 @@ action_mode = 0
 text = "Start Game
 "
 flat = true
-
-[node name="MenuMusic" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("1_l6cm7")
 
 [connection signal="pressed" from="ColorRect/VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]

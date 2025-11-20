@@ -22,6 +22,7 @@ buses/default_bus_layout="res://busses/default_bus_layout.tres"
 [autoload]
 
 Spawning="*res://addons/BulletUpHell/Spawning.tscn"
+TransitionScene="*res://scenes/transition_scene.tscn"
 
 [editor_plugins]
 

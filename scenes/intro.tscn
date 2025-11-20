@@ -1,6 +1,6 @@
-[gd_scene load_steps=17 format=3 uid="uid://dqtiwtpxe5l12"]
+[gd_scene load_steps=18 format=3 uid="uid://dqtiwtpxe5l12"]
 
-[ext_resource type="Script" uid="uid://clfjahfaod0mh" path="res://scenes/intro.gd" id="1_yjqpq"]
+[ext_resource type="Script" uid="uid://clfjahfaod0mh" path="res://scripts/intro.gd" id="1_yjqpq"]
 [ext_resource type="AudioStream" uid="uid://cajq5rlxpayfe" path="res://assets/Wind.mp3" id="2_4bx60"]
 [ext_resource type="Script" uid="uid://5hv4pjs1xcht" path="res://addons/richtext2/text_effects/anims/rte_fader.gd" id="3_wfs7u"]
 [ext_resource type="Script" uid="uid://cuyp5kmoygg6s" path="res://addons/richtext2/text_effects/effects/rte_jit2.gd" id="4_es01l"]
@@ -9,57 +9,59 @@
 [sub_resource type="RichTextEffect" id="RichTextEffect_wfs7u"]
 resource_name = "fader"
 script = ExtResource("3_wfs7u")
-metadata/rt = 2389797063809
+metadata/rt = 2386710056064
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_es01l"]
 resource_name = "jit2"
 script = ExtResource("4_es01l")
-metadata/rt = 2389797063809
+metadata/rt = 2386710056064
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_0naf5"]
 resource_name = "fader"
 script = ExtResource("3_wfs7u")
-metadata/rt = 2390199716999
+metadata/rt = 2387112709258
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_bu1yb"]
 resource_name = "fader"
 script = ExtResource("3_wfs7u")
-metadata/rt = 2390535261328
+metadata/rt = 2387448253587
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_t1qkj"]
 resource_name = "fader"
 script = ExtResource("3_wfs7u")
-metadata/rt = 4770081383227
+metadata/rt = 2387783797916
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_272cy"]
 resource_name = "fader"
 script = ExtResource("3_wfs7u")
-metadata/rt = 2390870805657
+metadata/rt = 2388119342245
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_37iue"]
 resource_name = "jit2"
 script = ExtResource("4_es01l")
-metadata/rt = 2390870805657
+metadata/rt = 2388119342245
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_n6p8m"]
 resource_name = "fader"
 script = ExtResource("3_wfs7u")
-metadata/rt = 2391273458850
+metadata/rt = 2388521995438
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_m3r7s"]
 resource_name = "fader"
 script = ExtResource("3_wfs7u")
-metadata/rt = 2391609003179
+metadata/rt = 2388857539767
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_xwriy"]
 resource_name = "fader"
 script = ExtResource("3_wfs7u")
-metadata/rt = 2391944547508
+metadata/rt = 2389193084096
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_u5myo"]
 resource_name = "jit2"
 script = ExtResource("4_es01l")
-metadata/rt = 2391944547508
+metadata/rt = 2389193084096
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_u05oh"]
 
 [node name="Intro" type="Control"]
 layout_mode = 3
@@ -792,3 +794,19 @@ override_bbcodeEnabled = true
 override_clipContents = false
 override_fitContent = true
 metadata/_custom_type_script = "uid://b6mbstaftpedd"
+
+[node name="continue" type="Button" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -8.0
+offset_right = 8.0
+grow_vertical = 0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_u05oh")
+text = "Click here to continue..."
+flat = true
+alignment = 0
+
+[connection signal="pressed" from="continue" to="." method="_on_continue_pressed"]
