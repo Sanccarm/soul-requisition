@@ -90,6 +90,9 @@ func died():
 	var game_node = get_parent()
 	if game_node and game_node.has_method("play_game_over_music"):
 		game_node.play_game_over_music()
+	
+	if game_node and game_node.has_method("display_lose_stats"):
+		game_node.display_lose_stats()
 		
 	# Create a CanvasLayer for UI effects
 	var canvas_layer = CanvasLayer.new()

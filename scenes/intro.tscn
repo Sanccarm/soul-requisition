@@ -1,65 +1,66 @@
-[gd_scene load_steps=18 format=3 uid="uid://dqtiwtpxe5l12"]
+[gd_scene load_steps=19 format=3 uid="uid://dqtiwtpxe5l12"]
 
 [ext_resource type="Script" uid="uid://clfjahfaod0mh" path="res://scripts/intro.gd" id="1_yjqpq"]
 [ext_resource type="AudioStream" uid="uid://cajq5rlxpayfe" path="res://assets/Wind.mp3" id="2_4bx60"]
 [ext_resource type="Script" uid="uid://5hv4pjs1xcht" path="res://addons/richtext2/text_effects/anims/rte_fader.gd" id="3_wfs7u"]
 [ext_resource type="Script" uid="uid://cuyp5kmoygg6s" path="res://addons/richtext2/text_effects/effects/rte_jit2.gd" id="4_es01l"]
 [ext_resource type="Script" uid="uid://b6mbstaftpedd" path="res://addons/richtext2/rich_text_animation.gd" id="5_0naf5"]
+[ext_resource type="FontFile" uid="uid://dkaohq0rk4idh" path="res://assets/fonts/Tiny5/Tiny5-Regular.ttf" id="6_es01l"]
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_wfs7u"]
 resource_name = "fader"
 script = ExtResource("3_wfs7u")
-metadata/rt = 2386710056064
+metadata/rt = 3844515919774
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_es01l"]
 resource_name = "jit2"
 script = ExtResource("4_es01l")
-metadata/rt = 2386710056064
+metadata/rt = 3844515919774
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_0naf5"]
 resource_name = "fader"
 script = ExtResource("3_wfs7u")
-metadata/rt = 2387112709258
+metadata/rt = 3844918572962
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_bu1yb"]
 resource_name = "fader"
 script = ExtResource("3_wfs7u")
-metadata/rt = 2387448253587
+metadata/rt = 3845254117283
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_t1qkj"]
 resource_name = "fader"
 script = ExtResource("3_wfs7u")
-metadata/rt = 2387783797916
+metadata/rt = 3845589661630
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_272cy"]
 resource_name = "fader"
 script = ExtResource("3_wfs7u")
-metadata/rt = 2388119342245
+metadata/rt = 3845925194902
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_37iue"]
 resource_name = "jit2"
 script = ExtResource("4_es01l")
-metadata/rt = 2388119342245
+metadata/rt = 3845925194902
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_n6p8m"]
 resource_name = "fader"
 script = ExtResource("3_wfs7u")
-metadata/rt = 2388521995438
+metadata/rt = 3846327857111
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_m3r7s"]
 resource_name = "fader"
 script = ExtResource("3_wfs7u")
-metadata/rt = 2388857539767
+metadata/rt = 3846663401416
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_xwriy"]
 resource_name = "fader"
 script = ExtResource("3_wfs7u")
-metadata/rt = 2389193084096
+metadata/rt = 3846998945779
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_u5myo"]
 resource_name = "jit2"
 script = ExtResource("4_es01l")
-metadata/rt = 2389193084096
+metadata/rt = 3846998945779
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_u05oh"]
 
@@ -74,6 +75,7 @@ script = ExtResource("1_yjqpq")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_4bx60")
+volume_db = -5.0
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
@@ -462,14 +464,14 @@ _triggers = {
 8: [[1001, {
 "w": 1.2
 }]],
-28: [[1002, {
+27: [[1002, {
 "p": 0.1
 }]]
 }
-_transforms = Array[Transform2D]([Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 251, 49), Transform2D(1, 0, 0, 1, 281, 49), Transform2D(1, 0, 0, 1, 296, 49), Transform2D(1, 0, 0, 1, 320, 49), Transform2D(1, 0, 0, 1, 348, 49), Transform2D(1, 0, 0, 1, 381, 49), Transform2D(1, 0, 0, 1, 397, 49), Transform2D(1, 0, 0, 1, 406, 49), Transform2D(1, 0, 0, 1, 421, 49), Transform2D(1, 0, 0, 1, 436, 49), Transform2D(1, 0, 0, 1, 482, 49), Transform2D(1, 0, 0, 1, 506, 49), Transform2D(1, 0, 0, 1, 524, 49), Transform2D(1, 0, 0, 1, 549, 49), Transform2D(1, 0, 0, 1, 564, 49), Transform2D(1, 0, 0, 1, 588, 49), Transform2D(1, 0, 0, 1, 619, 49), Transform2D(1, 0, 0, 1, 643, 49), Transform2D(1, 0, 0, 1, 658, 49), Transform2D(1, 0, 0, 1, 673, 49), Transform2D(1, 0, 0, 1, 692, 49), Transform2D(1, 0, 0, 1, 707, 49), Transform2D(1, 0, 0, 1, 726, 49), Transform2D(1, 0, 0, 1, 753, 49), Transform2D(1, 0, 0, 1, 777, 49), Transform2D(1, 0, 0, 1, 792, 49), Transform2D(1, 0, 0, 1, 835, 49), Transform2D(1, 0, 0, 1, 859, 49), Transform2D(1, 0, 0, 1, 874, 49), Transform2D(1, 0, 0, 1, 889, 49), Transform2D(1, 0, 0, 1, 898, 49), Transform2D(1, 0, 0, 1, 913, 49), Transform2D(1, 0, 0, 1, 922, 49), Transform2D(1, 0, 0, 1, 937, 49)])
-_char_size = Array[Vector2]([Vector2(0, 0), Vector2(30, 33), Vector2(0, 33), Vector2(24, 33), Vector2(27, 33), Vector2(33, 33), Vector2(15, 33), Vector2(9, 33), Vector2(0, 33), Vector2(0, 33), Vector2(45, 33), Vector2(24, 33), Vector2(18, 33), Vector2(24, 33), Vector2(15, 33), Vector2(24, 33), Vector2(30, 33), Vector2(24, 33), Vector2(0, 33), Vector2(15, 33), Vector2(18, 33), Vector2(0, 33), Vector2(21, 33), Vector2(27, 33), Vector2(24, 33), Vector2(0, 33), Vector2(42, 33), Vector2(24, 33), Vector2(0, 33), Vector2(0, 33), Vector2(9, 33), Vector2(0, 33), Vector2(9, 33), Vector2(0, 33), Vector2(9, 33)])
-_alpha = Array[float]([0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0])
-_alpha_goal = Array[float]([0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0])
+_transforms = Array[Transform2D]([Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 276, 49), Transform2D(1, 0, 0, 1, 306, 49), Transform2D(1, 0, 0, 1, 321, 49), Transform2D(1, 0, 0, 1, 345, 49), Transform2D(1, 0, 0, 1, 373, 49), Transform2D(1, 0, 0, 1, 406, 49), Transform2D(1, 0, 0, 1, 422, 49), Transform2D(1, 0, 0, 1, 431, 49), Transform2D(1, 0, 0, 1, 446, 49), Transform2D(1, 0, 0, 1, 461, 49), Transform2D(1, 0, 0, 1, 498, 49), Transform2D(1, 0, 0, 1, 525, 49), Transform2D(1, 0, 0, 1, 540, 49), Transform2D(1, 0, 0, 1, 555, 49), Transform2D(1, 0, 0, 1, 580, 49), Transform2D(1, 0, 0, 1, 601, 49), Transform2D(1, 0, 0, 1, 619, 49), Transform2D(1, 0, 0, 1, 634, 49), Transform2D(1, 0, 0, 1, 649, 49), Transform2D(1, 0, 0, 1, 668, 49), Transform2D(1, 0, 0, 1, 683, 49), Transform2D(1, 0, 0, 1, 702, 49), Transform2D(1, 0, 0, 1, 729, 49), Transform2D(1, 0, 0, 1, 753, 49), Transform2D(1, 0, 0, 1, 768, 49), Transform2D(1, 0, 0, 1, 811, 49), Transform2D(1, 0, 0, 1, 835, 49), Transform2D(1, 0, 0, 1, 850, 49), Transform2D(1, 0, 0, 1, 865, 49), Transform2D(1, 0, 0, 1, 874, 49), Transform2D(1, 0, 0, 1, 889, 49), Transform2D(1, 0, 0, 1, 898, 49), Transform2D(1, 0, 0, 1, 913, 49)])
+_char_size = Array[Vector2]([Vector2(0, 0), Vector2(30, 33), Vector2(0, 33), Vector2(24, 33), Vector2(27, 33), Vector2(33, 33), Vector2(15, 33), Vector2(9, 33), Vector2(0, 33), Vector2(0, 33), Vector2(36, 33), Vector2(27, 33), Vector2(15, 33), Vector2(15, 33), Vector2(24, 33), Vector2(21, 33), Vector2(18, 33), Vector2(0, 33), Vector2(15, 33), Vector2(18, 33), Vector2(0, 33), Vector2(21, 33), Vector2(27, 33), Vector2(24, 33), Vector2(0, 33), Vector2(42, 33), Vector2(24, 33), Vector2(0, 33), Vector2(0, 33), Vector2(9, 33), Vector2(0, 33), Vector2(9, 33), Vector2(0, 33), Vector2(9, 33)])
+_alpha = Array[float]([0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0])
+_alpha_goal = Array[float]([0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0])
 _forced_finish_delay = -0.04032000000001029
 default_wait_time = 1.0
 play_on_bbcode = false
@@ -484,7 +486,7 @@ shortcut_expression = true
 shortcut_bookmark = true
 signal_quotes = true
 signal_stars = true
-bbcode = "My [jit2][blue]soul[][]. [w=1.2] [jit2][green]Retrieve[][] it for me [p=.1] . . ."
+bbcode = "My [jit2][blue]soul[][]. [w=1.2] [jit2][green]Collect[][] it for me [p=.1] . . ."
 effects = 2
 alignment = 1
 color = Color(1, 1, 1, 1)
@@ -804,6 +806,7 @@ anchor_bottom = 1.0
 offset_top = -8.0
 offset_right = 8.0
 grow_vertical = 0
+theme_override_fonts/font = ExtResource("6_es01l")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_u05oh")
 text = "Click here to continue..."
 flat = true

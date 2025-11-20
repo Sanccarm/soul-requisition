@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dyl0fh3u2hd5q"]
+[gd_scene load_steps=16 format=3 uid="uid://dyl0fh3u2hd5q"]
 
 [ext_resource type="Script" uid="uid://dtjvreuodiyff" path="res://scripts/main_menu.gd" id="1_ekxnf"]
 [ext_resource type="AudioStream" uid="uid://uxyfqubr3iyo" path="res://assets/music/main_menu.ogg" id="1_l6cm7"]
@@ -6,23 +6,36 @@
 [ext_resource type="Script" uid="uid://b6mbstaftpedd" path="res://addons/richtext2/rich_text_animation.gd" id="3_8ln24"]
 [ext_resource type="Script" uid="uid://cuyp5kmoygg6s" path="res://addons/richtext2/text_effects/effects/rte_jit2.gd" id="3_oa1go"]
 [ext_resource type="Script" uid="uid://dhbxvg36y8pfd" path="res://addons/richtext2/text_effects/effects/rte_curspull.gd" id="4_tbmy8"]
+[ext_resource type="Script" uid="uid://5hv4pjs1xcht" path="res://addons/richtext2/text_effects/anims/rte_fader.gd" id="7_oa1go"]
+[ext_resource type="FontFile" uid="uid://dkaohq0rk4idh" path="res://assets/fonts/Tiny5/Tiny5-Regular.ttf" id="7_tbmy8"]
+[ext_resource type="FontFile" uid="uid://74lm1lj5v0au" path="res://assets/fonts/Jacquard_12/Jacquard12-Regular.ttf" id="9_jk1qb"]
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_rtw2f"]
 resource_name = "fromcursor"
 script = ExtResource("2_rtw2f")
-metadata/rt = 2383086177384
+metadata/rt = 2411154459788
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_oa1go"]
 resource_name = "jit2"
 script = ExtResource("3_oa1go")
-metadata/rt = 2383086177384
+metadata/rt = 2411154459788
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_tbmy8"]
 resource_name = "curspull"
 script = ExtResource("4_tbmy8")
-metadata/rt = 2383086177384
+metadata/rt = 2411154459788
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rtw2f"]
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_jk1qb"]
+resource_name = "fader"
+script = ExtResource("7_oa1go")
+metadata/rt = 28806664514934
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_5dd4i"]
+resource_name = "fader"
+script = ExtResource("7_oa1go")
+metadata/rt = 31668907904218
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -74,7 +87,7 @@ script = ExtResource("3_8ln24")
 animation = "fromcursor"
 progress = 1.0
 visible_character = 17
-_transforms = Array[Transform2D]([Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 338.55075, 66.83754), Transform2D(1, 0, 0, 1, 377.45383, 66.91504), Transform2D(1, 0, 0, 1, 425.3441, 67.00899), Transform2D(1, 0, 0, 1, 447.29712, 67.05137), Transform2D(1, 0, 0, 1, 469.2521, 67.09327), Transform2D(1, 0, 0, 1, 534.1299, 67.21387), Transform2D(1, 0, 0, 1, 568.0719, 67.27489), Transform2D(1, 0, 0, 1, 607.00995, 67.34302), Transform2D(1, 0, 0, 1, 654.9399, 67.42406), Transform2D(1, 0, 0, 1, 676.90985, 67.46014), Transform2D(1, 0, 0, 1, 710.86584, 67.514595), Transform2D(1, 0, 0, 1, 732.8389, 67.54899), Transform2D(1, 0, 0, 1, 758.8085, 67.58878), Transform2D(1, 0, 0, 1, 780.7838, 67.621735), Transform2D(1, 0, 0, 1, 819.74255, 67.67856), Transform2D(1, 0, 0, 1, 862.7004, 67.73889)])
+_transforms = Array[Transform2D]([Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 344.72412, 68.54023), Transform2D(1, 0, 0, 1, 383.71603, 68.5198), Transform2D(1, 0, 0, 1, 431.70563, 68.49393), Transform2D(1, 0, 0, 1, 453.70068, 68.48179), Transform2D(1, 0, 0, 1, 475.69562, 68.469475), Transform2D(1, 0, 0, 1, 540.6799, 68.43199), Transform2D(1, 0, 0, 1, 574.67114, 68.41171), Transform2D(1, 0, 0, 1, 613.66077, 68.387856), Transform2D(1, 0, 0, 1, 661.6473, 68.3576), Transform2D(1, 0, 0, 1, 683.6408, 68.34338), Transform2D(1, 0, 0, 1, 717.63055, 68.320984), Transform2D(1, 0, 0, 1, 739.62366, 68.3062), Transform2D(1, 0, 0, 1, 765.6153, 68.28842), Transform2D(1, 0, 0, 1, 787.60803, 68.27312), Transform2D(1, 0, 0, 1, 826.5946, 68.24539), Transform2D(1, 0, 0, 1, 869.5791, 68.2139)])
 _char_size = Array[Vector2]([Vector2(0, 0), Vector2(37, 48), Vector2(46, 48), Vector2(20, 48), Vector2(0, 48), Vector2(63, 48), Vector2(33, 48), Vector2(37, 48), Vector2(46, 48), Vector2(20, 48), Vector2(33, 48), Vector2(20, 48), Vector2(24, 48), Vector2(20, 48), Vector2(37, 48), Vector2(42, 48), Vector2(0, 48)])
 _alpha = Array[float]([1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0])
 _alpha_goal = Array[float]([1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0])
@@ -144,8 +157,8 @@ override_bbcodeEnabled = true
 override_clipContents = false
 override_fitContent = true
 metadata/_custom_type_script = "uid://b6mbstaftpedd"
-metadata/mouse_position = Vector2(-252.74841, -696.64233)
-metadata/frame = 86646
+metadata/mouse_position = Vector2(2788.1406, -889.22485)
+metadata/frame = 208951
 
 [node name="VBoxContainer" type="VBoxContainer" parent="ColorRect"]
 layout_mode = 1
@@ -164,10 +177,226 @@ grow_vertical = 2
 [node name="StartButton" type="Button" parent="ColorRect/VBoxContainer"]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 2
+theme_override_fonts/font = ExtResource("7_tbmy8")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_rtw2f")
 action_mode = 0
 text = "Start Game
 "
 flat = true
 
+[node name="Credits" type="Button" parent="ColorRect/VBoxContainer"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("7_tbmy8")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_rtw2f")
+action_mode = 0
+text = "Credits
+"
+flat = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="Credits" type="RichTextLabel" parent="CanvasLayer"]
+clip_contents = false
+custom_minimum_size = Vector2(0, 65)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -576.0
+offset_top = -186.0
+offset_right = 576.0
+offset_bottom = -121.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0.19999999, 0.19999999, 0.19999999, 1)
+theme_override_font_sizes/normal_font_size = 64
+theme_override_font_sizes/bold_font_size = 64
+theme_override_font_sizes/bold_italics_font_size = 64
+theme_override_font_sizes/italics_font_size = 64
+theme_override_font_sizes/mono_font_size = 64
+bbcode_enabled = true
+fit_content = true
+custom_effects = [SubResource("RichTextEffect_jk1qb")]
+script = ExtResource("3_8ln24")
+_play = false
+_hold = true
+_transforms = Array[Transform2D]([Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 530, 49), Transform2D(1, 0, 0, 1, 551, 49), Transform2D(1, 0, 0, 1, 575, 49), Transform2D(1, 0, 0, 1, 600, 49), Transform2D(1, 0, 0, 1, 615, 49), Transform2D(1, 0, 0, 1, 633, 49)])
+_char_size = Array[Vector2]([Vector2(0, 0), Vector2(24, 33), Vector2(24, 33), Vector2(24, 33), Vector2(15, 33), Vector2(18, 33), Vector2(24, 33)])
+_alpha = Array[float]([0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0])
+_alpha_goal = Array[float]([0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0])
+_forced_finish_delay = -0.04032000000001029
+default_wait_time = 1.0
+play_on_bbcode = false
+play_speed = 30.0
+fade_out = false
+fade_in_speed = 10.0
+fade_out_speed = 120.0
+ctc_offset = Vector2(1, -0.5)
+ctc_on_finished = false
+ctc_on_wait = false
+shortcut_expression = true
+shortcut_bookmark = true
+signal_quotes = true
+signal_stars = true
+bbcode = "[blue]Credits"
+effects = 2
+alignment = 1
+color = Color(1, 1, 1, 1)
+emoji_scale = 1.0
+font = "Jacquard12"
+font_auto_setup = true
+font_size = 64
+font_bold_weight = 1.5
+font_italics_slant = 0.25
+font_italics_weight = -0.25
+shadow_enabled = false
+shadow_offset = 0.08
+shadow_alpha = 0.25
+shadow_outline_size = 0.1
+outline_size = 0
+outline_mode = 1
+outline_adjust = 0.8
+outline_hue_adjust = 0.0125
+nicer_quotes_enabled = true
+nicer_quotes_format = "“%s”"
+markdown_enabled = true
+markdown_format_bold = "[b]%s[]"
+markdown_format_italics = "[i]%s[]"
+markdown_format_bold_italics = "[bi]%s[]"
+markdown_format_highlight = "[green;sin]%s[]"
+markdown_format_bold2 = "[b]*%s*[]"
+markdown_format_italics2 = "[i;gray]*%s*[]"
+markdown_format_bold_italics2 = "%s"
+context_enabled = true
+context_path = NodePath("/root/State")
+context_state = {}
+context_rich_objects = true
+context_rich_ints = true
+context_rich_array = true
+autostyle_numbers = true
+autostyle_numbers_tag = "[salmon]%s[]"
+autostyle_numbers_pad_decimals = true
+autostyle_numbers_decimals = 2
+autostyle_emojis = true
+effect_weight = 0.0
+image_path = "res://"
+image_resize_to_font_size = true
+image_scale = 1.0
+meta_auto_https = true
+meta_cursor = 2
+override_bbcodeEnabled = true
+override_clipContents = false
+override_fitContent = true
+metadata/_custom_type_script = "uid://b6mbstaftpedd"
+
+[node name="Credits2" type="RichTextLabel" parent="CanvasLayer"]
+clip_contents = false
+custom_minimum_size = Vector2(0, 195)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -576.0
+offset_top = -85.5
+offset_right = 576.0
+offset_bottom = 109.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0.19999999, 0.19999999, 0.19999999, 1)
+theme_override_font_sizes/normal_font_size = 64
+theme_override_font_sizes/bold_font_size = 64
+theme_override_font_sizes/bold_italics_font_size = 64
+theme_override_font_sizes/italics_font_size = 64
+theme_override_font_sizes/mono_font_size = 64
+bbcode_enabled = true
+fit_content = true
+custom_effects = [SubResource("RichTextEffect_5dd4i")]
+script = ExtResource("3_8ln24")
+_play = false
+_hold = true
+_transforms = Array[Transform2D]([Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0)])
+_char_size = Array[Vector2]([Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0)])
+_alpha = Array[float]([0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0])
+_alpha_goal = Array[float]([0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0])
+_forced_finish_delay = -0.04032000000001029
+default_wait_time = 1.0
+play_on_bbcode = false
+play_speed = 30.0
+fade_out = false
+fade_in_speed = 10.0
+fade_out_speed = 120.0
+ctc_offset = Vector2(1, -0.5)
+ctc_on_finished = false
+ctc_on_wait = false
+shortcut_expression = true
+shortcut_bookmark = true
+signal_quotes = true
+signal_stars = true
+bbcode = "[lightblue]Scripting: [] Carmelo Sanchez
+[lightblue] Music: [] Carmelo Sanchez
+[lightblue]Assets:[] Elijah Morgan, Carmelo Sanchez"
+effects = 2
+alignment = 0
+color = Color(1, 1, 1, 1)
+emoji_scale = 1.0
+font = "Jacquard12"
+font_auto_setup = true
+font_size = 64
+font_bold_weight = 1.5
+font_italics_slant = 0.25
+font_italics_weight = -0.25
+shadow_enabled = false
+shadow_offset = 0.08
+shadow_alpha = 0.25
+shadow_outline_size = 0.1
+outline_size = 0
+outline_mode = 1
+outline_adjust = 0.8
+outline_hue_adjust = 0.0125
+nicer_quotes_enabled = true
+nicer_quotes_format = "“%s”"
+markdown_enabled = true
+markdown_format_bold = "[b]%s[]"
+markdown_format_italics = "[i]%s[]"
+markdown_format_bold_italics = "[bi]%s[]"
+markdown_format_highlight = "[green;sin]%s[]"
+markdown_format_bold2 = "[b]*%s*[]"
+markdown_format_italics2 = "[i;gray]*%s*[]"
+markdown_format_bold_italics2 = "%s"
+context_enabled = true
+context_path = NodePath("/root/State")
+context_state = {}
+context_rich_objects = true
+context_rich_ints = true
+context_rich_array = true
+autostyle_numbers = true
+autostyle_numbers_tag = "[salmon]%s[]"
+autostyle_numbers_pad_decimals = true
+autostyle_numbers_decimals = 2
+autostyle_emojis = true
+effect_weight = 0.0
+image_path = "res://"
+image_resize_to_font_size = true
+image_scale = 1.0
+meta_auto_https = true
+meta_cursor = 2
+override_bbcodeEnabled = true
+override_clipContents = false
+override_fitContent = true
+metadata/_custom_type_script = "uid://b6mbstaftpedd"
+
+[node name="back" type="Button" parent="CanvasLayer"]
+offset_right = 8.0
+offset_bottom = 8.0
+theme_override_fonts/font = ExtResource("9_jk1qb")
+disabled = true
+text = "Back"
+flat = true
+
 [connection signal="pressed" from="ColorRect/VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="ColorRect/VBoxContainer/Credits" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="CanvasLayer/back" to="." method="_on_back_pressed"]

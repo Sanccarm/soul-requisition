@@ -6,12 +6,12 @@ const level_select = preload("res://scenes/level_select.tscn")
 func _ready():
 	wind.play()
 	await get_tree().create_timer(3).timeout
+	ready_click_to_continue()
 	$VBoxContainer/Line1.advance()
 	await get_tree().create_timer(3).timeout
 	$VBoxContainer/Line2.advance()
 	await get_tree().create_timer(3).timeout
 	$VBoxContainer/Line3.advance()
-	ready_click_to_continue()
 
 func ready_click_to_continue():
 	var tween = create_tween()

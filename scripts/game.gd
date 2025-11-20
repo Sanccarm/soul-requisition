@@ -268,11 +268,11 @@ func update_countdown_timer(delta: float) -> void:
 			set_bullet_speed(500)
 			# Timer expired - set maximum homing intensity
 			countdown_timer = 0
-			timer_label.bbcode = "00:00.00"
+			timer_label.text = "00:00.00"
 			countdown_active = false
 			timer_label.modulate = Color.RED
 			# Set maximum homing strength when timer reaches zero
-			update_existing_bullets_homing(1000.0, player)
+			update_existing_bullets_homing(500.0, player)
 
 
 func update_timer_display() -> void:
@@ -362,7 +362,7 @@ func _on_level_completed() -> void:
 		var cameraslide = get_tree().create_tween()
 		cameraslide.parallel().tween_property($"Player/Camera2D", "position:x", -100 , .1)
 		play_game_win_music()
-		display_stats()
+		display_win_stats()
 		level_completed = true
 		game_stopped = true
 		update_soul_status("[green][wave amp=20]Soul Returned.")
@@ -372,8 +372,29 @@ func _on_level_completed() -> void:
 		if player:
 			player.remove_from_group("Player")
 			player.set_physics_process(false)
+			player.remove_from_group("Player")
+			player.set_physics_process(false)
 
-func display_stats():
+func display_lose_stats():
+	var total_time = get_level_time()
+	var total_collaspe_time = get_timer_label()
+	soul_status_label.visible = false
+	timer_label.visible = false
+	var slideout = get_tree().create_tween()
+	await slideout.tween_property($CanvasLayer/LoseStats,"position:x", 0, .5).set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_IN_OUT).finished
+	$CanvasLayer/LoseStats/VBoxContainer/levelloss.advance()
+	await get_tree().create_timer(1).timeout
+	$CanvasLayer/LoseStats/VBoxContainer/soulreturned.advance()
+	await get_tree().create_timer(1).timeout
+	$CanvasLayer/LoseStats/VBoxContainer/totaltime.bbcode = "[pink]Total Time: %s" %[total_time]  
+	$CanvasLayer/LoseStats/VBoxContainer/totaltime.advance()
+	print(total_collaspe_time)
+	$CanvasLayer/LoseStats/VBoxContainer/totalcollapsetime.bbcode = "[pink]Collapse Time Left: %s" % [total_collaspe_time]
+	$CanvasLayer/LoseStats/VBoxContainer/totalcollapsetime.advance()
+	$CanvasLayer/LoseStats/VBoxContainer/nearmisses.advance()
+	
+
+func display_win_stats():
 	var total_time = get_level_time()
 	var total_collaspe_time = get_timer_label()
 	soul_status_label.visible = false
@@ -480,14 +501,17 @@ func is_soul_collected() -> bool:
 
 
 func _on_restart_pressed() -> void:
+	if Spawning:
+		Spawning.clear_all_bullets()
 	TransitionScene.transition()
 	await TransitionScene.on_transmission_finished
 	get_tree().change_scene_to_file(replay)
 
 
 func _on_returntolevelselect_pressed() -> void:
+	TransitionScene.transition()
+	await TransitionScene.on_transmission_finished
+	get_tree().change_scene_to_file(return_to_level_select)
 	# Immediately clear all bullets before returning to level select
 	if Spawning:
 		Spawning.clear_all_bullets()
-	
-	get_tree().change_scene_to_file(return_to_level_select)
