@@ -43,6 +43,9 @@ func _ready() -> void:
 	if player == null:
 		push_error("Player node not found! Make sure it has a unique name (%) in the scene tree.")
 		return
+
+	if Input.is_action_just_pressed("restart"):
+		_on_restart_pressed()
 	
 	# Initialize audio system
 	initialize_audio()

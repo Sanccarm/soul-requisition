@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dp40gejnhvecd"
-path="res://.godot/imported/Bullet_3.png-4c11095a272b0c843f8cc78587c0cff6.ctex"
+uid="uid://bu6swjj2badpq"
+path="res://.godot/imported/projectile8.png-0bf2adc83e6ef16206e164fd4f69f70f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://addons/BulletUpHell/Bullet/Sprites/Bullet_3.png"
-dest_files=["res://.godot/imported/Bullet_3.png-4c11095a272b0c843f8cc78587c0cff6.ctex"]
+source_file="res://assets/projectile2/projectile8.png"
+dest_files=["res://.godot/imported/projectile8.png-0bf2adc83e6ef16206e164fd4f69f70f.ctex"]
 
 [params]
 
