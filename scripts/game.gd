@@ -6,6 +6,9 @@ extends Node2D
 
 const replay = "res://scenes/demo_level.tscn"
 
+const return_to_level_select = "res://scenes/level_select.tscn"
+
+
 @onready var player: CharacterBody2D = $Player
 @onready var soul_status_label: RichTextAnimation = $CanvasLayer/SoulStatus
 @onready var reset_button: Button = $CanvasLayer/ResetButton
@@ -391,10 +394,10 @@ func display_stats():
 func _on_reset_button_pressed() -> void:
 	"""Handle game reset event - completely resets everything as if reloading the scene"""
 	
-	# Reset bullet system first to clear all bullets and patterns
+	# Immediately clear all bullets from the air
 	if Spawning:
-		Spawning.reset()
 		Spawning.clear_all_bullets()
+		Spawning.reset()
 	
 	# Reset game state
 	player.add_to_group("Player")
@@ -480,3 +483,11 @@ func _on_restart_pressed() -> void:
 	TransitionScene.transition()
 	await TransitionScene.on_transmission_finished
 	get_tree().change_scene_to_file(replay)
+
+
+func _on_returntolevelselect_pressed() -> void:
+	# Immediately clear all bullets before returning to level select
+	if Spawning:
+		Spawning.clear_all_bullets()
+	
+	get_tree().change_scene_to_file(return_to_level_select)

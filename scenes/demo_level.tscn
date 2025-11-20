@@ -1139,6 +1139,22 @@ metadata/_custom_type_script = "uid://b6mbstaftpedd"
 
 [node name="Restart" type="Button" parent="CanvasLayer/WinStats"]
 layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -170.0
+offset_top = -65.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("21_cgsjm")
+theme_override_font_sizes/font_size = 50
+text = "Restart"
+flat = true
+
+[node name="Returntolevelselect" type="Button" parent="CanvasLayer/WinStats"]
+layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
@@ -1147,7 +1163,8 @@ offset_right = 170.0
 grow_vertical = 0
 theme_override_fonts/font = ExtResource("21_cgsjm")
 theme_override_font_sizes/font_size = 50
-text = "Restart?"
+text = "Return"
+flat = true
 
 [node name="Button" type="Button" parent="CanvasLayer"]
 anchors_preset = 2
@@ -1270,4 +1287,6 @@ override_fitContent = true
 metadata/_custom_type_script = "uid://b6mbstaftpedd"
 
 [connection signal="pressed" from="CanvasLayer/WinStats/Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="CanvasLayer/WinStats/Returntolevelselect" to="." method="_on_returntolevelselect_pressed"]
+[connection signal="pressed" from="CanvasLayer/WinStats/Returntolevelselect" to="." method="_on_restart_pressed"]
 [connection signal="pressed" from="CanvasLayer/Button" to="Player" method="_on_button_pressed"]
