@@ -472,10 +472,10 @@ color = Color(0.65, 0, 0.021666646, 0.62352943)
 turbulence_noise_strength = 5.31
 turbulence_noise_scale = 0.0
 
-[sub_resource type="RichTextEffect" id="RichTextEffect_t3uk0"]
+[sub_resource type="RichTextEffect" id="RichTextEffect_iqpg7"]
 resource_name = "fader"
 script = ExtResource("19_t3uk0")
-metadata/rt = 4525419236152
+metadata/rt = 2374395579445
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_pe5t1")
@@ -676,8 +676,10 @@ process_material = SubResource("ParticleProcessMaterial_oif02")
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_top = -35.0
-offset_right = 122.848
+offset_left = -158.0
+offset_top = 12.0
+offset_right = -35.152
+offset_bottom = 47.0
 grow_vertical = 0
 disabled = true
 text = "REVIVE"
@@ -686,9 +688,10 @@ text = "REVIVE"
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_top = -105.0
-offset_right = 122.848
-offset_bottom = -35.0
+offset_left = -181.0
+offset_top = 56.0
+offset_right = -58.152
+offset_bottom = 126.0
 grow_vertical = 0
 disabled = true
 text = "RESET"
@@ -711,16 +714,20 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="SoulStatus" type="RichTextLabel" parent="CanvasLayer"]
+clip_contents = false
 offset_right = 307.0
 offset_bottom = 40.0
+theme_override_colors/font_outline_color = Color(0.19999999, 0.19999999, 0.19999999, 1)
 theme_override_font_sizes/normal_font_size = 16
 theme_override_font_sizes/bold_font_size = 16
 theme_override_font_sizes/bold_italics_font_size = 16
 theme_override_font_sizes/italics_font_size = 16
 theme_override_font_sizes/mono_font_size = 16
-custom_effects = [SubResource("RichTextEffect_t3uk0")]
+bbcode_enabled = true
+fit_content = true
+custom_effects = [SubResource("RichTextEffect_iqpg7")]
 script = ExtResource("19_i2ok4")
-_forced_finish_delay = -0.025509555555555646
+_forced_finish_delay = -0.02550955555555564
 default_wait_time = 1.0
 play_on_bbcode = true
 play_speed = 30.0
@@ -739,7 +746,7 @@ effects = 2
 alignment = 0
 color = Color(1, 1, 1, 1)
 emoji_scale = 1.0
-font = ""
+font = "Tiny5"
 font_auto_setup = true
 font_size = 16
 font_bold_weight = 1.5

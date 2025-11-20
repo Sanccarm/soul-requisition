@@ -10,17 +10,17 @@
 [sub_resource type="RichTextEffect" id="RichTextEffect_rtw2f"]
 resource_name = "fromcursor"
 script = ExtResource("2_rtw2f")
-metadata/rt = 2379646848058
+metadata/rt = 2380083055682
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_oa1go"]
 resource_name = "jit2"
 script = ExtResource("3_oa1go")
-metadata/rt = 2379646848058
+metadata/rt = 2380083055682
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_tbmy8"]
 resource_name = "curspull"
 script = ExtResource("4_tbmy8")
-metadata/rt = 2379646848058
+metadata/rt = 2380083055682
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rtw2f"]
 
@@ -71,7 +71,7 @@ script = ExtResource("3_8ln24")
 animation = "fromcursor"
 progress = 1.0
 visible_character = 17
-_transforms = Array[Transform2D]([Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 344.94525, 69.340454), Transform2D(1, 0, 0, 1, 383.94308, 69.32771), Transform2D(1, 0, 0, 1, 431.94028, 69.31135), Transform2D(1, 0, 0, 1, 453.9389, 69.30358), Transform2D(1, 0, 0, 1, 475.9375, 69.29564), Transform2D(1, 0, 0, 1, 540.93304, 69.271095), Transform2D(1, 0, 0, 1, 574.9305, 69.25758), Transform2D(1, 0, 0, 1, 613.9274, 69.241455), Transform2D(1, 0, 0, 1, 661.92334, 69.22065), Transform2D(1, 0, 0, 1, 683.9214, 69.21073), Transform2D(1, 0, 0, 1, 717.91815, 69.19491), Transform2D(1, 0, 0, 1, 739.91595, 69.18433), Transform2D(1, 0, 0, 1, 765.91327, 69.17148), Transform2D(1, 0, 0, 1, 787.9109, 69.16029), Transform2D(1, 0, 0, 1, 826.9064, 69.13972), Transform2D(1, 0, 0, 1, 869.90106, 69.11586)])
+_transforms = Array[Transform2D]([Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 344.8723, 68.99746), Transform2D(1, 0, 0, 1, 383.8694, 68.98612), Transform2D(1, 0, 0, 1, 431.8656, 68.97183), Transform2D(1, 0, 0, 1, 453.86383, 68.96515), Transform2D(1, 0, 0, 1, 475.862, 68.95838), Transform2D(1, 0, 0, 1, 540.8564, 68.93788), Transform2D(1, 0, 0, 1, 574.85333, 68.92684), Transform2D(1, 0, 0, 1, 613.84973, 68.91391), Transform2D(1, 0, 0, 1, 661.8451, 68.897575), Transform2D(1, 0, 0, 1, 683.8429, 68.88993), Transform2D(1, 0, 0, 1, 717.8394, 68.877914), Transform2D(1, 0, 0, 1, 739.8371, 68.87001), Transform2D(1, 0, 0, 1, 765.8343, 68.86052), Transform2D(1, 0, 0, 1, 787.83185, 68.85238), Transform2D(1, 0, 0, 1, 826.8274, 68.83766), Transform2D(1, 0, 0, 1, 869.8223, 68.821014)])
 _char_size = Array[Vector2]([Vector2(0, 0), Vector2(37, 48), Vector2(46, 48), Vector2(20, 48), Vector2(0, 48), Vector2(63, 48), Vector2(33, 48), Vector2(37, 48), Vector2(46, 48), Vector2(20, 48), Vector2(33, 48), Vector2(20, 48), Vector2(24, 48), Vector2(20, 48), Vector2(37, 48), Vector2(42, 48), Vector2(0, 48)])
 _alpha = Array[float]([1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0])
 _alpha_goal = Array[float]([1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0])
@@ -141,8 +141,8 @@ override_bbcodeEnabled = true
 override_clipContents = false
 override_fitContent = true
 metadata/_custom_type_script = "uid://b6mbstaftpedd"
-metadata/mouse_position = Vector2(2341.905, -264.5)
-metadata/frame = 210338
+metadata/mouse_position = Vector2(3609.064, -776.09766)
+metadata/frame = 17964
 
 [node name="VBoxContainer" type="VBoxContainer" parent="ColorRect"]
 layout_mode = 1
@@ -169,3 +169,5 @@ flat = true
 
 [node name="MenuMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("1_l6cm7")
+
+[connection signal="pressed" from="ColorRect/VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
