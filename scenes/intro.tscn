@@ -10,57 +10,57 @@
 [sub_resource type="RichTextEffect" id="RichTextEffect_es01l"]
 resource_name = "fader"
 script = ExtResource("3_wfs7u")
-metadata/rt = 2394125585658
+metadata/rt = 2394964446463
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_0naf5"]
 resource_name = "jit2"
 script = ExtResource("4_es01l")
-metadata/rt = 2394125585658
+metadata/rt = 2394964446463
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_bu1yb"]
 resource_name = "fader"
 script = ExtResource("3_wfs7u")
-metadata/rt = 2394528238851
+metadata/rt = 2395367099656
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_t1qkj"]
 resource_name = "fader"
 script = ExtResource("3_wfs7u")
-metadata/rt = 2394863783180
+metadata/rt = 2395702643985
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_272cy"]
 resource_name = "fader"
 script = ExtResource("3_wfs7u")
-metadata/rt = 2395199327509
+metadata/rt = 2396038188314
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_37iue"]
 resource_name = "fader"
 script = ExtResource("3_wfs7u")
-metadata/rt = 2395534871838
+metadata/rt = 2396373732643
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_n6p8m"]
 resource_name = "jit2"
 script = ExtResource("4_es01l")
-metadata/rt = 2395534871838
+metadata/rt = 2396373732643
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_m3r7s"]
 resource_name = "fader"
 script = ExtResource("3_wfs7u")
-metadata/rt = 2395937525031
+metadata/rt = 2396776385836
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_xwriy"]
 resource_name = "fader"
 script = ExtResource("3_wfs7u")
-metadata/rt = 2396273069360
+metadata/rt = 2397111930165
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_u5myo"]
 resource_name = "fader"
 script = ExtResource("3_wfs7u")
-metadata/rt = 2396608613689
+metadata/rt = 2397447474494
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_u05oh"]
 resource_name = "jit2"
 script = ExtResource("4_es01l")
-metadata/rt = 2396608613689
+metadata/rt = 2397447474494
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_u05oh"]
 

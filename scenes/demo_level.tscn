@@ -366,7 +366,7 @@ script = ExtResource("10_siyaw")
 angle_total = 6.28319
 bullet = "basic"
 iterations = -1
-cooldown_shoot = 2.0
+cooldown_shoot = 0.8
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_y6sut"]
 resource_name = "PatternLine"
@@ -477,67 +477,67 @@ turbulence_noise_scale = 0.0
 [sub_resource type="RichTextEffect" id="RichTextEffect_nrjfr"]
 resource_name = "fader"
 script = ExtResource("19_t3uk0")
-metadata/rt = 2369865731107
+metadata/rt = 2370587151400
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_siyaw"]
 resource_name = "fader"
 script = ExtResource("19_t3uk0")
-metadata/rt = 2370268384297
+metadata/rt = 2370989804590
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_yhpex"]
 resource_name = "fader"
 script = ExtResource("19_t3uk0")
-metadata/rt = 2370671037490
+metadata/rt = 2371392457783
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_6ls7d"]
 resource_name = "fader"
 script = ExtResource("19_t3uk0")
-metadata/rt = 2371073690683
+metadata/rt = 2371795110976
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_2v5tb"]
 resource_name = "fader"
 script = ExtResource("19_t3uk0")
-metadata/rt = 2371476343876
+metadata/rt = 2372197764169
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_rdeo8"]
 resource_name = "fader"
 script = ExtResource("19_t3uk0")
-metadata/rt = 2372113878110
+metadata/rt = 2372835298403
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_qii72"]
 resource_name = "fader"
 script = ExtResource("19_t3uk0")
-metadata/rt = 2372583640171
+metadata/rt = 2373305060464
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_du7la"]
 resource_name = "jit2"
 script = ExtResource("23_nrjfr")
-metadata/rt = 2372583640171
+metadata/rt = 2373305060464
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_x8j88"]
 resource_name = "fader"
 script = ExtResource("19_t3uk0")
-metadata/rt = 2372986293361
+metadata/rt = 2373707713654
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_d7k28"]
 resource_name = "jit2"
 script = ExtResource("23_nrjfr")
-metadata/rt = 2372986293361
+metadata/rt = 2373707713654
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_2euh2"]
 resource_name = "fader"
 script = ExtResource("19_t3uk0")
-metadata/rt = 2373388946554
+metadata/rt = 2374110366847
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_2o4aa"]
 resource_name = "fader"
 script = ExtResource("19_t3uk0")
-metadata/rt = 2373791599747
+metadata/rt = 2374513020040
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_h4d3l"]
 resource_name = "fader"
 script = ExtResource("19_t3uk0")
-metadata/rt = 2374194252940
+metadata/rt = 2374915673233
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_pe5t1")
@@ -736,9 +736,39 @@ trigger_container = NodePath("")
 
 [node name="LineSpawner4" type="Node2D" parent="SpawnPoints"]
 top_level = true
-position = Vector2(768, 623)
+position = Vector2(456, 552)
 script = ExtResource("15_qii72b")
-active = false
+active = true
+auto_pattern_id = "single2"
+shared_area_name = "0"
+rotating_speed = 0.0
+pool_amount = 50
+auto_start_on_cam = true
+auto_start_after_time = 2.0
+auto_start_at_distance = 1.0
+auto_distance_from = NodePath("../../Player")
+trigger_container = NodePath("")
+
+[node name="TopSpawner3" type="Node2D" parent="SpawnPoints"]
+top_level = true
+position = Vector2(633, 326)
+script = ExtResource("15_qii72b")
+active = true
+auto_pattern_id = "circle"
+shared_area_name = "0"
+rotating_speed = 200.0
+pool_amount = 50
+auto_start_on_cam = true
+auto_start_after_time = 5.0
+auto_start_at_distance = 5.0
+auto_distance_from = NodePath("")
+trigger_container = NodePath("")
+
+[node name="LineSpawner5" type="Node2D" parent="SpawnPoints"]
+top_level = true
+position = Vector2(944, 464)
+script = ExtResource("15_qii72b")
+active = true
 auto_pattern_id = "single2"
 shared_area_name = "0"
 rotating_speed = 0.0

@@ -512,7 +512,7 @@ func _on_restart_pressed() -> void:
 
 func _on_returntolevelselect_pressed() -> void:
 	Spawning.clear_all_bullets()
-	await get_tree().create_timer(1).timeout
+	#await get_tree().create_timer(1).timeout
 	TransitionScene.transition()
 	await TransitionScene.on_transmission_finished
 	get_tree().call_deferred("change_scene_to_file", return_to_level_select) #Holy shit so goated

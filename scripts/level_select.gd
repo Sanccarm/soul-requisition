@@ -3,6 +3,7 @@ extends Control
 @onready var level_select_music = $LevelSelect
 
 func _ready():
+	Spawning.clear_all_bullets()
 	level_select_music.play()
 
 func _on_level_1_pressed() -> void:
